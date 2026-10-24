@@ -120,3 +120,21 @@ and one section reference.
   `$$…$$` inside a list item is typeset inline, not as display. Inside lists
   the README therefore uses inline math only.
 - No claim changed.
+
+## 2026-10-24 — Title changed (author decision)
+
+- Title changed from *An eigenvalue counting law for an arithmetic kernel on
+  the squarefree integers* to *The eigenvalue decay of the limiting kernel of
+  a sparse Mertens matrix*, chosen by the author from proposed options. The
+  new title names the result and links the paper to the sparse Mertens
+  series.
+- Changed surfaces: README heading, `paper/main.tex` (title block and PDF
+  metadata), `CITATION.cff`. The slug and all claims are unchanged.
+- Rendered title page inspected: two centered lines, no stranded words.
+- Clean rebuild from a copy of the tracked files, with the PDF deleted:
+  PASS, 21 pages, `make check` reports no errors. PDF SHA-256
+  `b2292e98843de734aac93570ad73af065a9f47630c3c1587008170d0a2d9eedf`,
+  identical to the tracked PDF. `VERIFICATION.md` and `MANIFEST.sha256`
+  updated.
+- A1 metadata row rechecked: title, author, version and candidate status
+  agree across the README, PDF title page and metadata, and `CITATION.cff`.

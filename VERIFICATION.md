@@ -55,7 +55,7 @@ shasum -a 256 -c MANIFEST.sha256
 ```
 
 `paper/main.pdf` SHA-256:
-`70912f55d62f6127e7150b64e4ba9afe30bf3fa64b6eba234f8df1c694f5c925`.
+`b2292e98843de734aac93570ad73af065a9f47630c3c1587008170d0a2d9eedf`.
 
 The checker fails on any of the following:
 

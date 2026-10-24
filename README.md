@@ -1,4 +1,4 @@
-# An eigenvalue counting law for an arithmetic kernel on the squarefree integers
+# The eigenvalue decay of the limiting kernel of a sparse Mertens matrix
 
 Jeffery Kline
 

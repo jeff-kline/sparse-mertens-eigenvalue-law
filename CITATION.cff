@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "Please cite Version 0.1.0 of this research repository."
-title: "An eigenvalue counting law for an arithmetic kernel on the squarefree integers"
+title: "The eigenvalue decay of the limiting kernel of a sparse Mertens matrix"
 type: software
 version: 0.1.0
 authors:
