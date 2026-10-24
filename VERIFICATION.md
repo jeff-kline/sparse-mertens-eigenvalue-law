@@ -1,6 +1,6 @@
-# Verification record — version 0.1.0 candidate
+# Verification record — version 0.1.0
 
-Recorded 2026-10-23.
+Recorded 2026-10-23; updated 2026-10-24 for the release.
 
 ## What is verified here
 
@@ -36,7 +36,7 @@ shasum -a 256 paper/main.pdf
 shasum -a 256 -c MANIFEST.sha256
 ```
 
-`make check` output:
+`make check` output (living copy, 2026-10-24):
 
 ```json
 {
@@ -44,9 +44,9 @@ shasum -a 256 -c MANIFEST.sha256
   "pages": 21,
   "source_files": 11,
   "labels": 62,
-  "references": 116,
-  "bibliography_entries": 12,
-  "cited_entries": 12,
+  "references": 115,
+  "bibliography_entries": 13,
+  "cited_entries": 13,
   "python": "3.9.6",
   "isolated": true,
   "errors": [],
@@ -54,8 +54,20 @@ shasum -a 256 -c MANIFEST.sha256
 }
 ```
 
-`paper/main.pdf` SHA-256:
-`e22b7e98fb0c6c3b7cf093ef430891615bd4230b1da59aeae1bd157fcaa3c0b2`.
+Reading copy in the archived release (tag `v0.1.0`):
+
+```text
+paper/main.pdf  21 pages
+SHA-256 e22b7e98fb0c6c3b7cf093ef430891615bd4230b1da59aeae1bd157fcaa3c0b2
+```
+
+Living copy, rebuilt after archiving with the version DOI on its title page
+(the only source change is the title-page status line and PDF subject):
+
+```text
+paper/main.pdf  21 pages
+SHA-256 68e6f24f67a43a28366472868da07518be00ab425d053fa1f71175d99cded183
+```
 
 The checker fails on any of the following:
 
@@ -74,9 +86,8 @@ all embedded and subset. No font package is loaded.
 
 ## Clean-checkout reproduction
 
-On 2026-10-23, `git archive` of commit `b8683d2` was extracted to a fresh
-directory and the tracked `paper/main.pdf` was deleted. The documented
-sequence (`python3 -m venv .venv`, `make paper`, `make check`) then
-reproduced a PDF with the SHA-256 above, byte for byte. A second build in the
-working tree was also identical. Only the release records changed after
-`b8683d2`, and the paper sources and PDF are unchanged.
+On 2026-10-24, `git archive` of the tagged commit `268da17` was extracted to
+a fresh directory. The documented sequence (`python3 -m venv .venv`,
+`make paper`, `make check`) reproduced the archived reading copy above, byte
+for byte, and every manifest entry checked. Earlier candidates were
+reproduced the same way (`audit/LEDGER.md`).

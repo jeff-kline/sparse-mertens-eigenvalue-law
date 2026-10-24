@@ -20,8 +20,7 @@ claims and artifacts.
 - If earlier work is found that anticipates a result here, the novelty
   statements will be narrowed and the source credited in a new version.
 
-Once the repository is public, suspected errors may be reported through its
-issue tracker:
+Suspected errors may be reported through the repository's issue tracker:
 <https://github.com/jeff-kline/sparse-mertens-eigenvalue-law/issues>.
 
 ## Relation to earlier releases
@@ -36,15 +35,27 @@ own.
 
 ## Version history
 
-### 0.1.0 — release candidate
+### 0.1.0 — released 2026-10-24
+
+- Tag `v0.1.0` at commit `268da17`; version DOI
+  [`10.5281/zenodo.23621017`](https://doi.org/10.5281/zenodo.23621017), concept DOI `10.5281/zenodo.23621016`.
+- The tagged snapshot retains its prepublication “release candidate” wording
+  and carries no DOI, because the DOI was minted by Zenodo after the GitHub
+  Release. The living repository and paper now carry the active DOI; the
+  archived files were not changed.
+
+#### Release preparation, before the tag
 
 - Release preparation began 2026-10-23 from a local prose draft. The
   pre-release defects found by internal reviews and their dispositions are in
   `audit/REVIEW-HISTORY.md`.
-- The candidate has no DOI or permanent archive, and no public repository.
 - Prepublication changes during release preparation, before any tag: the
   preamble follows the predecessor (default fonts, no list package); author,
   version line, credit to Kline (2019), and a role-of-AI paragraph were added;
   three bibliography entries now cite journal versions; the audit findings in
   `audit/LEDGER.md` led to small wording changes in §4.3, §7.1 and Remark A.5,
   and a one-line proof in §7.1. No theorem statement changed.
+- On 2026-10-24, before the tag: the title changed from *An eigenvalue
+  counting law for an arithmetic kernel on the squarefree integers*, and §7
+  gained theorem-level comparisons with Naimark–Solomyak and
+  Bendikov–Grigor'yan–Molchanov (`audit/PRIOR-ART.md`).

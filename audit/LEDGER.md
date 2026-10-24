@@ -179,3 +179,29 @@ and one section reference.
 - Records updated: `ADMISSION.md` (state, scope, R1 rows, external actions;
   stale Hygiene and Citation evidence corrected) and `audit/RELEASE-PLAN.md`.
   No paper, README or citation-metadata change; the PDF is unchanged.
+
+## 2026-10-24 — Public, tagged, archived, admitted (author-authorized)
+
+- Repository made public by the root agent on the author's instruction;
+  secret scanning and push protection enabled, matching the predecessor.
+  Full history scanned first for local paths and private email: none.
+- The author enabled the repository in Zenodo. Annotated tag `v0.1.0`
+  (object `f90acdb`, noreply tagger) pushed at `268da17`; candidate audit
+  with the tag: 8 pass, 0 fail.
+- GitHub zipball for the tag pinned twice before the release (454,000 bytes,
+  SHA-256 `097a7877…a499`); its contents equal the tagged tree and its
+  manifest.
+- GitHub Release "Version 0.1.0" published 15:18 UTC. The webhook delivery
+  for `created` returned 202; the `released` and `published` deliveries
+  returned 409 as duplicates; one record was created.
+- Zenodo record 23621017: version DOI `10.5281/zenodo.23621017`, concept DOI
+  `10.5281/zenodo.23621016`. Two downloads are byte-identical to the pinned
+  zipball. Archived-state audit on the unchanged tagged tree: 11 pass, 0
+  fail.
+- Site entry "Eigenvalue decay for a sparse Mertens kernel" published (site
+  commit `0e7f7f5`); Pages build and live HTML checked at desktop, 777 px
+  and 390 px.
+- Living metadata updated: README badge and status, `CITATION.cff` DOIs and
+  release date, living PDF with the DOI on its title page (SHA-256
+  `68e6f24f…d183`), `VERIFICATION.md`, `CORRECTIONS.md`, `ADMISSION.md`
+  (verdict ADMITTED).

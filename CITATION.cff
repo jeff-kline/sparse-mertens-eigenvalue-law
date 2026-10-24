@@ -9,6 +9,15 @@ authors:
 repository-code: "https://github.com/jeff-kline/sparse-mertens-eigenvalue-law"
 url: "https://github.com/jeff-kline/sparse-mertens-eigenvalue-law"
 license: GPL-3.0-only
+doi: 10.5281/zenodo.23621017
+date-released: 2026-10-24
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.23621017
+    description: "Version DOI for release 0.1.0"
+  - type: doi
+    value: 10.5281/zenodo.23621016
+    description: "Concept DOI; resolves to the latest version"
 abstract: >-
   A paper and release repository proving that the explicit positive compact
   kernel K on the squarefree integers, the limit of normalized Gram matrices
