@@ -1,6 +1,6 @@
 # Admission record
 
-**Current state:** CANDIDATE (local only)
+**Current state:** CANDIDATE (frozen for tagging on 2026-10-24)
 
 **Version:** 0.1.0
 
@@ -13,10 +13,13 @@
 Admission is a project release decision. It is not peer review, a correctness
 certificate, or proof of global novelty.
 
-**Scope set by the author (2026-10-23):** nothing is public for now. A
-private GitHub repository was authorized and created on 2026-10-23. No public
-visibility, tag, release, DOI, or site entry exists or is planned without a
-further explicit authorization.
+**Scope set by the author.** On 2026-10-23: nothing public; a private GitHub
+repository was authorized and created. On 2026-10-24 the author accepted the
+named P1 residuals and authorized freezing this candidate for the release
+sequence: public visibility and Zenodo enablement (author actions), then the
+tag `v0.1.0` and the GitHub Release. Each step is taken only on the author's
+explicit authorization. The site entry and the admitted-state metadata need
+a separate authorization.
 
 ## Principal claim
 
@@ -72,21 +75,21 @@ these named residuals on 2026-10-24.**
 |---|---|---|
 | Reproduction | PASS | `VERIFICATION.md`: clean build from `git archive` of the candidate commit |
 | Artifact integrity | PASS | Deterministic PDF (fixed `SOURCE_DATE_EPOCH`); `MANIFEST.sha256` |
-| Hygiene | PASS | Tracked tree scanned for local paths and placeholders. README rendered with `gh api markdown` (GFM) on 2026-10-23: no `$` remains, and all 76 code spans and 8 sections render |
+| Hygiene | PASS | Tracked tree scanned for local paths and placeholders. README rendered with `gh api markdown` (GFM), last on 2026-10-24: 63 inline and 3 display math elements, matching the source, and no `$` outside math |
 | Stewardship | PASS | `CORRECTIONS.md` |
-| Tag | FAIL (out of scope) | not authorized |
-| Archive | FAIL (out of scope) | not authorized |
-| Citation | FAIL (out of scope) | no DOI; the CFF is candidate-safe (no DOI, no release date, no repository URL) |
-| Metadata | FAIL (out of scope) | no archive |
+| Tag | FAIL (pending) | `v0.1.0` not yet created |
+| Archive | FAIL (pending) | Zenodo GitHub-integration route; no record yet |
+| Citation | FAIL (pending) | no DOI yet; the CFF is publication-safe (timeless message, repository URL, no DOI, no release date) |
+| Metadata | FAIL (pending) | no archive yet |
 
-**R1 gate:** open by scope.
+**R1 gate:** open until the tag, archive and DOI exist and are verified.
 
 ## External actions
 
 | Action | Owner | Status |
 |---|---|---|
-| Local candidate commit | root agent | done: `b8683d2` (candidate), `c816db9` (records) |
+| Local candidate commit | root agent | done: `b8683d2` (candidate), `c816db9` (records); frozen for tagging 2026-10-24 (the commit that adds this row) |
 | Private GitHub repository and push | author authorization | done 2026-10-23: `jeff-kline/sparse-mertens-eigenvalue-law` (private); `main` pushed at `c816db9` |
-| Public visibility; Zenodo enablement | author | not authorized |
-| Tag and GitHub Release | author authorization | not authorized |
+| Public visibility; Zenodo enablement | author | authorized in sequence 2026-10-24; pending |
+| Tag and GitHub Release | author authorization | authorized in sequence 2026-10-24; pending |
 | Site entry | author | not authorized |

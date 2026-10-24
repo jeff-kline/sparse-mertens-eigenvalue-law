@@ -11,6 +11,12 @@ local CANDIDATE commit. No GitHub repository (private or public), tag,
 release, DOI, Zenodo record, or site entry is created without a further,
 explicit authorization. R1 cannot close in this scope.
 
+**Update 2026-10-24.** The author accepted the named P1 residuals and
+authorized freezing the candidate for the release sequence (public
+visibility and Zenodo enablement by the author, then tag `v0.1.0` and the
+GitHub Release), each step on explicit authorization. The site entry is not
+yet authorized.
+
 ## Principal claim
 
 For the explicit kernel `K` (paper (1)), unconditionally,
@@ -38,6 +44,6 @@ operator-norm estimate; no Mertens estimate.
 |---|---|---|
 | Local candidate commit | root agent | done |
 | Private GitHub repository and push | author authorization | done 2026-10-23 (private) |
-| Public visibility, Zenodo enablement | author | not authorized |
-| Tag `v0.1.0`, GitHub Release | author authorization | not authorized |
+| Public visibility, Zenodo enablement | author | authorized in sequence 2026-10-24; pending |
+| Tag `v0.1.0`, GitHub Release | author authorization | authorized in sequence 2026-10-24; pending |
 | Site entry | author | not authorized |

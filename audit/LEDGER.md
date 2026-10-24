@@ -171,3 +171,11 @@ and one section reference.
 - The author accepted the named P1 residuals (`audit/PRIOR-ART.md`, "Open
   comparisons"). P1 remains PARTIAL; the acceptance is recorded in
   `ADMISSION.md`. No public action is authorized by this decision.
+
+## 2026-10-24 — Candidate frozen for tagging (author-authorized)
+
+- The author kept the paper date (October 23, 2026) and authorized step 1
+  of the freeze bundle: freeze one candidate commit for tagging.
+- Records updated: `ADMISSION.md` (state, scope, R1 rows, external actions;
+  stale Hygiene and Citation evidence corrected) and `audit/RELEASE-PLAN.md`.
+  No paper, README or citation-metadata change; the PDF is unchanged.
