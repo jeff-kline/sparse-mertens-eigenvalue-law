@@ -138,3 +138,30 @@ and one section reference.
   updated.
 - A1 metadata row rechecked: title, author, version and candidate status
   agree across the README, PDF title page and metadata, and `CITATION.cff`.
+
+## 2026-10-24 — Bounded P1 pass (author-authorized)
+
+- A process-separated AI literature agent (read-only on this repository)
+  compared Bendikov–Grigor'yan–Molchanov and Naimark–Solomyak (Proc. LMS
+  2000) at theorem level. It retried Kigami–Lapidus (closed access; a
+  secondary restatement was read) and ran a fast-follow scan dated
+  2026-10-24 on GitHub repositories and code and on arXiv.
+- The root agent spot-checked the quoted locations in the downloaded texts:
+  BGM §2.1 (non-compact, proper, homogeneous) and Thm 2.1; NS eq. (1.1)
+  (weight `V ∈ L¹_loc`), Thm 4.6 and Cor. 4.7. The root agent added the
+  argument that a Naimark–Solomyak realization would put zero weight on
+  every edge, because children's cylinders cover each cylinder up to a null
+  set.
+- Outcome: no source read contains or implies the principal result. P1
+  stays PARTIAL with narrowed residuals (`audit/PRIOR-ART.md`, "Open
+  comparisons").
+- Reader-facing changes: paper §7 (Carleson/tree paragraph and BGM sentence
+  replaced by the comparisons; closing caveat names the incomplete
+  comparisons), new reference [NS], README "Earlier work" (two items) and
+  "Open comparisons". The theorems and novelty labels are unchanged; the
+  qualifier "not found in the sources checked" stands on all surfaces.
+- Rebuilt: 21 pages, `make check` with 13/13 references cited and no
+  errors; PDF SHA-256
+  `e22b7e98fb0c6c3b7cf093ef430891615bd4230b1da59aeae1bd157fcaa3c0b2`.
+  README re-rendered with `gh api markdown -f mode=gfm`: 63 inline and 3
+  display math elements, no `$` outside math. Pages 15–16 inspected.

@@ -129,11 +129,21 @@ so this is not a worldwide novelty claim.
 - **Kigami and Lapidus (1993)** used recursive counting identities and
   renewal theory for self-similar fractals; the appendix on stationary trees
   uses the key renewal theorem in that way.
+- **Naimark and Solomyak (2000)** gave two-sided estimates, with
+  unspecified constants, for Schatten norms of weighted Hardy-type operators
+  on metric trees of bounded branching. Their weights live on the edges,
+  while the mass here lies on the ends of the tree, so their theorems do not
+  apply directly.
+- **Bendikov, Grigor'yan and Molchanov** studied hierarchical Schrödinger
+  operators on non-compact homogeneous ultrametric spaces. Their results
+  concern self-adjointness, discrete spectrum and negative eigenvalues, not
+  eigenvalue asymptotics for a compact operator such as this one.
 
-Open comparisons: weighted Carleson-embedding and bounded-degree tree
-results (the operator has an exact binary-tree form, given in Section 7),
-hierarchical Schrödinger operators (Bendikov, Grigor'yan and Molchanov), and
-the full text of Kigami–Lapidus.
+Open comparisons: whether an approximation argument brings the
+Naimark–Solomyak estimates to bear (which could give two-sided bounds, not
+the constant); Carleson-embedding results at the level of theorems (the
+operator has an exact binary-tree form, given in Section 7); and the full
+text of Kigami–Lapidus, which we could not obtain.
 
 ## Evidence and limits
 

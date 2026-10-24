@@ -37,14 +37,14 @@ Mertens function is claimed.
 
 | Check | Status | Evidence or residual |
 |---|---|---|
-| Closest mechanisms and parameter families compared | PARTIAL | `audit/PRIOR-ART.md` compares Hilberdink–Pushnitski (2 papers), Evans–Harris–Lang, Bendikov–Grigor'yan–Pittet–Woess, Hilberdink, and Erdős–Ivić–Pomerance at theorem level. Open: Carleson-embedding and weighted bounded-degree tree results applied to the exact binary representation; a theorem-level comparison with Bendikov–Grigor'yan–Molchanov |
-| Obtainable primary sources checked | PARTIAL | Primary texts were read for the sources above and for Hildebrand–Tenenbaum and Gallager (`audit/reports/citation-prior-art-audit.md`). Kigami–Lapidus full text was not retrieved; Naimark–Solomyak was not read |
+| Closest mechanisms and parameter families compared | PARTIAL | `audit/PRIOR-ART.md` compares Hilberdink–Pushnitski (2 papers), Evans–Harris–Lang, Bendikov–Grigor'yan–Pittet–Woess, Bendikov–Grigor'yan–Molchanov, Naimark–Solomyak (Proc. LMS 2000), Hilberdink, and Erdős–Ivić–Pomerance at theorem level; Kigami–Lapidus through a secondary restatement. Open: whether an approximation argument brings Naimark–Solomyak's two-sided estimates to bear (order only, not the constant); Carleson-embedding and Lifshits–Linde-type results at theorem level |
+| Obtainable primary sources checked | PARTIAL | Primary texts were read for the sources above and for Hildebrand–Tenenbaum and Gallager (`audit/reports/citation-prior-art-audit.md`). Kigami–Lapidus full text is not obtainable here (closed access; retried 2026-10-24); Naimark–Solomyak, Russ. J. Math. Phys. 2001, abstract only |
 | Contribution types distinguished | PASS | README "What is new" (principal result; consequences; representation; supporting general results without priority claim; restatement of the predecessor's Theorem 4.3; arithmetic count not new in method); paper §1.3 and §7 |
 | Novelty bounded to searched corpus | PASS | "not found in the sources checked; open comparisons could change this" on the README, paper §7.1 and `audit/PRIOR-ART.md` |
 | Inaccessible sources visible | PASS | Named in the README, paper §7 and `audit/PRIOR-ART.md`. MathSciNet and zbMATH NOT PERFORMED |
-| Fast-follow scan within 7 days of tagging | PASS for 2026-10-23 | `audit/LEDGER.md`. Must be repeated if tagging happens after 2026-10-30 |
+| Fast-follow scan within 7 days of tagging | PASS for 2026-10-24 | `audit/PRIOR-ART.md` (search log, 2026-10-24) and `audit/LEDGER.md`. Must be repeated if tagging happens after 2026-10-31 |
 
-**P1 gate:** PARTIAL. The residuals are named. A tag would be acceptable
+**P1 gate:** PARTIAL (narrowed 2026-10-24; no source read contains or implies the principal result). The residuals are named. A tag would be acceptable
 under the standard only if the author accepts these named residuals.
 
 ## A1 — claim and artifact consistency
