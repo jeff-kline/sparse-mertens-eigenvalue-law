@@ -6,6 +6,8 @@ version: 0.1.0
 authors:
   - family-names: Kline
     given-names: Jeffery
+repository-code: "https://github.com/jeff-kline/sparse-mertens-eigenvalue-law"
+url: "https://github.com/jeff-kline/sparse-mertens-eigenvalue-law"
 license: GPL-3.0-only
 abstract: >-
   A paper and release repository proving that the explicit positive compact

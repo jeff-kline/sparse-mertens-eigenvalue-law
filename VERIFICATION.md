@@ -71,3 +71,12 @@ The checker fails on any of the following:
 
 The paper uses the TeX installation's default Computer Modern Type 1 fonts,
 all embedded and subset. No font package is loaded.
+
+## Clean-checkout reproduction
+
+On 2026-10-23, `git archive` of commit `b8683d2` was extracted to a fresh
+directory and the tracked `paper/main.pdf` was deleted. The documented
+sequence (`python3 -m venv .venv`, `make paper`, `make check`) then
+reproduced a PDF with the SHA-256 above, byte for byte. A second build in the
+working tree was also identical. Only the release records changed after
+`b8683d2`, and the paper sources and PDF are unchanged.

@@ -68,3 +68,27 @@ as the release's adversarial audit.
 After these edits, the 19 formal statements were re-extracted and diffed
 against the mathematical baseline. They are unchanged apart from one label
 and one section reference.
+
+## 2026-10-23 — Mechanical release audit (R1) and one reversed disposition
+
+- `release_audit.py --state candidate --tag v0.1.0 --require-clean` on commit
+  `b8683d2`: 5 pass, 1 warning (tag not yet created, expected), 2 fail.
+- Fail 1: `CITATION.cff` is missing `repository-code`. **Disposition: claim-lane
+  M3 is partly reversed.** The planned repository URL is restored in `url` and
+  `repository-code`, matching the predecessor's candidate CFF. The README
+  status line and `ADMISSION.md` state that the repository has not been
+  created; the URL is a planned location, not a citation of a published
+  version.
+- Fail 2: `--require-github-noreply` needs `--publish-base`, and no remote
+  exists. Identities were checked directly instead: the author and committer
+  of every commit are `Jeff Kline <2778446+jeff-kline@users.noreply.github.com>`.
+  This must be rerun with `--publish-base` before any push.
+- The script's citation-key check found 0/0 keys, because it does not parse
+  the `thebibliography` items under `paper/sections/`. The project checker
+  covers this (12/12 cited, 0 missing).
+- Clean reproduction: `git archive` of `b8683d2` was extracted to a scratch
+  directory, the tracked PDF was deleted, and `python3 -m venv .venv && make
+  paper && make check` was run. Result: PASS, 21 pages, PDF SHA-256
+  `70912f55d62f6127e7150b64e4ba9afe30bf3fa64b6eba234f8df1c694f5c925`,
+  identical to the tracked PDF. A warm repeat build was also identical.
+  Manifest: all files OK.
