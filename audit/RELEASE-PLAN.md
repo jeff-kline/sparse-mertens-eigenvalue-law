@@ -36,8 +36,8 @@ operator-norm estimate; no Mertens estimate.
 
 | Action | Owner | Status |
 |---|---|---|
-| Local candidate commit | root agent | planned |
-| Private GitHub repository and push | author authorization | not authorized |
+| Local candidate commit | root agent | done |
+| Private GitHub repository and push | author authorization | done 2026-10-23 (private) |
 | Public visibility, Zenodo enablement | author | not authorized |
 | Tag `v0.1.0`, GitHub Release | author authorization | not authorized |
 | Site entry | author | not authorized |

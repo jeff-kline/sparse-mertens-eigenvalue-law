@@ -92,3 +92,15 @@ and one section reference.
   `70912f55d62f6127e7150b64e4ba9afe30bf3fa64b6eba234f8df1c694f5c925`,
   identical to the tracked PDF. A warm repeat build was also identical.
   Manifest: all files OK.
+
+## 2026-10-23 — Private GitHub stage (author-authorized)
+
+- README rendered with `gh api markdown -f mode=gfm`: 0 `math-renderer`
+  elements (none intended), 0 `$` characters, 76 code spans, 8 sections.
+- Created the private repository `jeff-kline/sparse-mertens-eigenvalue-law` and
+  pushed `main` at `c816db9`. Visibility verified PRIVATE; remote
+  `refs/heads/main` equals local.
+- Commit identities before the push: the author and committer of `b8683d2`
+  and `c816db9` are `2778446+jeff-kline@users.noreply.github.com`.
+- Not done, and not authorized: public visibility, tag, GitHub Release,
+  Zenodo, site entry.

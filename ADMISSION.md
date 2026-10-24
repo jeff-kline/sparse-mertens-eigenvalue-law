@@ -13,9 +13,10 @@
 Admission is a project release decision. It is not peer review, a correctness
 certificate, or proof of global novelty.
 
-**Scope set by the author (2026-10-23):** nothing is public for now. No
-GitHub repository, tag, release, DOI, or site entry exists or is planned
-without a further explicit authorization.
+**Scope set by the author (2026-10-23):** nothing is public for now. A
+private GitHub repository was authorized and created on 2026-10-23. No public
+visibility, tag, release, DOI, or site entry exists or is planned without a
+further explicit authorization.
 
 ## Principal claim
 
@@ -70,7 +71,7 @@ under the standard only if the author accepts these named residuals.
 |---|---|---|
 | Reproduction | PASS | `VERIFICATION.md`: clean build from `git archive` of the candidate commit |
 | Artifact integrity | PASS | Deterministic PDF (fixed `SOURCE_DATE_EPOCH`); `MANIFEST.sha256` |
-| Hygiene | PARTIAL | Tracked tree scanned for local paths and placeholders. The README platform-render check (`gh api markdown`) is deferred to the first GitHub stage, because sending unpublished text to GitHub was outside the "nothing public" scope. The README has no `$` math spans |
+| Hygiene | PASS | Tracked tree scanned for local paths and placeholders. README rendered with `gh api markdown` (GFM) on 2026-10-23: no `$` remains, and all 76 code spans and 8 sections render |
 | Stewardship | PASS | `CORRECTIONS.md` |
 | Tag | FAIL (out of scope) | not authorized |
 | Archive | FAIL (out of scope) | not authorized |
@@ -83,8 +84,8 @@ under the standard only if the author accepts these named residuals.
 
 | Action | Owner | Status |
 |---|---|---|
-| Local candidate commit | root agent | done; see `git log` |
-| Private GitHub repository and push | author authorization | not authorized |
+| Local candidate commit | root agent | done: `b8683d2` (candidate), `c816db9` (records) |
+| Private GitHub repository and push | author authorization | done 2026-10-23: `jeff-kline/sparse-mertens-eigenvalue-law` (private); `main` pushed at `c816db9` |
 | Public visibility; Zenodo enablement | author | not authorized |
 | Tag and GitHub Release | author authorization | not authorized |
 | Site entry | author | not authorized |
