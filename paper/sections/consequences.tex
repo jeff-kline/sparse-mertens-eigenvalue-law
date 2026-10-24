@@ -1,0 +1,112 @@
+\section{Proof of the main theorem and further consequences}\label{sec:consequences}
+We now combine the cylinder representation, the transfer theorem, and the
+arithmetic count.
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Equations \eqref{eq:arith-ratios} and \eqref{eq:cylinder-mass} verify
+\eqref{eq:tree-assumptions} with $\theta=1/3$. The child ratios tend to zero
+outside finite sets. Proposition~\ref{prop:compact} and
+\eqref{eq:gram-identification} establish positivity and compactness.
+Theorems~\ref{thm:transfer} and \ref{thm:arithmetic}, followed by
+\eqref{eq:countscale}, give
+\[
+ \ncount(K;s)\sim D(s/c_0)
+ \sim\frac{c_0}{s\log(c_0/s)}
+ \sim\frac{c_0}{s\log(1/s)}.
+\]
+
+To invert the count without assumptions about multiplicities, put
+$b_r=c_0/(r\log r)$ for $r\ge2$. For each fixed $\varepsilon\in(0,1)$,
+\[
+ \frac{\ncount(K;(1\pm\varepsilon)b_r)}r
+ \longrightarrow\frac1{1\pm\varepsilon}.
+\]
+For all sufficiently large $r$ this traps $\lambda_r(K)$ between
+$(1-\varepsilon)b_r$ and $(1+\varepsilon)b_r$.
+Letting $\varepsilon\downarrow0$ proves \eqref{eq:maineigen}.
+Summation, with finitely many initial terms absorbed, gives
+$\sum_{r\le R}\lambda_r(K)\sim c_0\log\log R$.
+
+Let $P=R_{\one}$ be the orthogonal projection onto constants in $L^2(\nu)$.
+The root column of $V$ is $\one$, of norm one, and $Se_1=e_1$.
+Thus
+\[
+ L=c_0 S V^*(I-P)VS\ge0.
+\]
+It is compact, and $K-L$ is positive of rank one. Interlacing gives
+\[
+ 0\le\ncount(K;s)-\ncount(L;s)\le1.
+\]
+This proves the same counting law for $L$; inversion and summation
+apply unchanged.
+\end{proof}
+
+\begin{corollary}\label{cor:schatten}
+For every $p>0$, $K$ and $L$ belong to the Schatten class $\mathcal S_p$
+if and only if $p>1$. In particular, they are Hilbert--Schmidt but not
+trace class.
+\end{corollary}
+\begin{proof}
+For a positive compact operator, membership in $\mathcal S_p$ means
+\[
+ \sum_r\lambda_r^p<\infty.
+\]
+Compare with $\sum_{r\ge2}(r\log r)^{-p}$, using Theorem~\ref{thm:main}.
+\end{proof}
+
+\subsection{A trace-class perturbation, and its precise use}
+There is also a direct trace-class relation to the diagonal. It is useful
+for sums of eigenvalues, although the pointwise counting law above uses
+the tree theorem.
+
+\begin{proposition}\label{prop:traceclass}
+Let $\Delta=\diag(\delta_d:d\in\sfq)$, with zero entries elsewhere.
+Then $K-\Delta$ is trace class. If $\delta_r^\downarrow$ lists the
+positive diagonal entries in decreasing order, then, for every $R\ge1$,
+\[
+ \left|\sum_{r\le R}\lambda_r(K)
+             -\sum_{r\le R}\delta_r^\downarrow\right|
+ \le\norm{K-\Delta}_{\mathcal S_1}.
+\]
+Moreover, for each prime $p$,
+\begin{equation}\label{eq:layer}
+ \sum_{\substack{d\in\sfq\\P^+(d)=p}}\delta_d=\frac{c_0}{p+1}.
+\end{equation}
+\end{proposition}
+\begin{proof}
+For squarefree $j$, let $b_j$ have coordinate $K_{jk}$ at strict
+descendants $k$ of $j$ and zero elsewhere. If $j>1$ and $y=P^+(j)$,
+write such descendants as $k=jd$. Then $d>y$ and
+$\delta_{jd}/\delta_j\le1/d$, so
+\[
+ \norm{b_j}^2\le\delta_j^2\sum_{d>y}d^{-2}\le\frac{\delta_j^2}{y}.
+\]
+The root vector $b_1$ is in $\ell^2$ since $\delta_k\le c_0/k$.
+On the other hand,
+\[
+ \sum_{P^+(d)=p}\delta_d
+ =\frac{c_0m(p)}p
+       \prod_{q<p}(1+1/q)
+ =\frac{c_0}{p+1},
+\]
+proving \eqref{eq:layer}. Hence
+\[
+ \sum_{\substack{j\in\sfq\\j>1}}\norm{b_j}
+ \le c_0\sum_p\frac1{(p+1)\sqrt p}<\infty.
+\]
+Since $b_j\perp e_j$, the self-adjoint rank-two operator
+$e_jb_j^*+b_je_j^*$ has trace norm $2\norm{b_j}$. Thus
+\[
+ K-\Delta=\sum_{j\in\sfq}(e_jb_j^*+b_je_j^*)
+\]
+converges in trace norm; its entries identify it with the stated
+difference. The eigenvalue-sum bound is Ky Fan's variational principle,
+using $|\Tr(PE)|\le\norm E_{\mathcal S_1}$ for finite-rank orthogonal
+projections $P$ and trace-class $E$.
+\end{proof}
+
+Equation~\eqref{eq:layer} also proves directly that the positive operator
+$K$ has infinite trace, since $\sum_p1/(p+1)$ diverges.
+The trace-class perturbation statement alone is not used to infer
+\eqref{eq:maineigen}; the mass scale here is below $1/r$, so a generic
+trace-class perturbation does not supply the required relative control.

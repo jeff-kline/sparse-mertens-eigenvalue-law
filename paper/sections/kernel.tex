@@ -1,0 +1,70 @@
+\section{The cylinder representation}\label{sec:kernel}
+The proof separates the geometry of nested sets from an arithmetic counting
+problem. The relevant diagonal count is
+\begin{equation}\label{eq:Darith}
+ D(t)=\#\{d\in\sfq:\nu_d>t\}.
+\end{equation}
+Section~\ref{sec:tree} gives an abstract criterion for transferring $D$ to
+the spectrum. Section~\ref{sec:arithmetic} proves
+$D(t)\sim[t\log(1/t)]^{-1}$, including the leading constant. In this
+section we realize $K$, up to a diagonal unitary and the factor $c_0$, as a
+Gram matrix of nested sets whose masses are the numbers $\nu_d$.
+
+\subsection{A product probability space}
+Let $\Omega=\{0,1\}^{\{\text{primes}\}}$, with independent coordinates and
+probability $1/(p+1)$ that prime $p$ is selected. Denote its probability
+measure by $\nu$. This is the local model of a random squarefree integer:
+$1/(p+1)$ is the density, among squarefree integers, of those divisible
+by $p$. For $d\in\sfq$, let
+\[
+ A_d=\{\omega:\text{the selected primes at most }P^+(d)
+                   \text{ are exactly the prime divisors of }d\};
+ \qquad A_1=\Omega.
+\]
+Direct multiplication gives
+\begin{equation}\label{eq:cylinder-mass}
+ \nu(A_d)=
+ \prod_{p\mid d}\frac1{p+1}
+ \prod_{\substack{p\le P^+(d)\\p\nmid d}}\frac p{p+1}
+ =\nu_d.
+\end{equation}
+If $j\preceq k$, then $A_k\subseteq A_j$; incomparable indices give disjoint
+cylinders. Indeed, if $P^+(j)\le P^+(k)$ and the two cylinders intersect,
+the selected primes at most $P^+(j)$ force $j\preceq k$. Hence
+\begin{equation}\label{eq:gramentries}
+ \inner{\one_{A_j}}{\one_{A_k}}
+ =\nu_{\max(j,k)}\one_{\{j,k\text{ comparable}\}}.
+\end{equation}
+
+The children of $d$ are $dq$ for primes $q>P^+(d)$. Their cylinders cover
+$A_d$ up to a null set, since
+$\prod_{p>P^+(d)}p/(p+1)=0$. Their relative masses are
+\begin{equation}\label{eq:arith-ratios}
+ \frac{\nu_{dq}}{\nu_d}
+ =\frac1{q+1}\prod_{P^+(d)<p<q}\frac p{p+1}
+ \le\frac1{P^+(d)+2}\le\frac13.
+\end{equation}
+For every fixed $y$ there are only finitely many $d\in\sfq$ with
+$P^+(d)\le y$. The largest immediate-child ratio therefore tends to zero
+outside finite sets of vertices, in the sense of
+Definition~\ref{def:regvar} below. Also $D(t)<\infty$, since $\nu_d\le1/d$.
+
+\subsection{Removing the signs}
+Let $S$ be the diagonal unitary whose $d$th entry is $\mu(d)$ on squarefree
+coordinates and $1$ otherwise. On comparable squarefree indices,
+$\mu(k/j)=\mu(j)\mu(k)$. Equations \eqref{eq:K} and \eqref{eq:gramentries}
+therefore identify
+\begin{equation}\label{eq:gram-identification}
+ K=c_0 S V^*VS,\qquad
+ Vx=\sum_{d\in\sfq}x_d\one_{A_d},
+ \qquad T=VV^*.
+\end{equation}
+Here $V$ is zero on nonsquarefree coordinates; its bounded extension and
+compactness follow from Proposition~\ref{prop:compact}. Since the nonzero
+spectra of $V^*V$ and $VV^*$ coincide, with multiplicity,
+\begin{equation}\label{eq:countscale}
+ \ncount(K;s)=\ncount(T;s/c_0).
+\end{equation}
+The operator $T$ acts on $L^2(\nu)$ and is the sum over $d\in\sfq$ of the
+rank-one operators $f\mapsto\inner{f}{\one_{A_d}}\one_{A_d}$. The next
+section studies such sums for general trees of nested sets.

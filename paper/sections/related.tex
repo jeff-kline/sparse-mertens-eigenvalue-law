@@ -1,0 +1,161 @@
+\section{Related work and open questions}\label{sec:related}
+\subsection{Related work}
+\emph{Arithmetic matrices.} The fixed-index part of the connection in
+Section~\ref{sec:finite} follows a pattern used by Hilberdink~\cite{Hil17}
+for multiplicative Toeplitz matrices $(f(i/j)\one_{\{j\mid i\}})$: after
+normalization, Gram matrices of the finite matrices converge to a positive
+Hilbert--Schmidt operator, so each fixed singular value has a limit
+described by an eigenvalue of that operator. Hilberdink and
+Pushnitski~\cite{HP21,HP24} then determined eigenvalue asymptotics for
+infinite arithmetic matrices built from least common multiples, such as
+$(n^\sigma m^\sigma/[n,m]^\tau)$, obtaining power laws such as
+$\lambda_n\sim\kappa n^{-\rho}$. Their proofs use a factorization of these
+matrices as infinite tensor products over primes, which expresses the
+eigenvalues as products of local eigenvalues, followed by a Tauberian
+theorem of Wiener--Ikehara type. They also show that the constant $\kappa$
+need not be the one suggested by the diagonal entries; see~(1.5) of
+\cite{HP21} and the discussion following it. The kernel $K$ is of a
+different kind: its entries depend
+on the ancestor relation in the tree, not on a multiplicative function of
+the indices, and we have not found a tensor-product factorization of it.
+Its eigenvalue law also carries a logarithmic factor rather than being a
+pure power. In contrast with the example of~\cite{HP21}, for $K$ the
+leading constant is the one given by the count of diagonal masses.
+
+\emph{Operators on trees.} The synthesis map $V$ of
+\eqref{eq:gram-identification} is a discrete Hardy-type operator: for
+finitely supported $x$, $(Vx)(\omega)$ is the sum of $x_d$ over the
+vertices $d$ on the path determined by $\omega$. Evans, Harris and
+Lang~\cite{EHL} proved, for Hardy operators on metric trees with finite
+vertex degrees and suitable weights $u,v$, that the approximation numbers
+satisfy $n\,a_n\to\alpha_p\int|uv|$, extending earlier Hilbert-space
+results cited there. When this limit is finite,
+$a_n=O(1/n)$. For $V$, Theorem~\ref{thm:main} and
+\eqref{eq:gram-identification} give
+$a_n(V)=(\lambda_n(K)/c_0)^{1/2}\sim(n\log n)^{-1/2}$, so $V$ is not covered
+by that theorem with a finite integral. The tree of
+Section~\ref{sec:kernel} has vertices of infinite degree, but this is a
+feature of the presentation rather than of the operator. Revealing the
+primes one at a time gives a binary filtration of $\Omega$ whose cylinders
+$B$ are determined by the selected primes up to some prime $p$. Each $A_d$
+is the cylinder of this kind with $p=P^+(d)$ in which the last revealed
+prime is selected, and
+\[
+ T=\sum_B c_B\,\nu(B)^{-1}\rankone{\one_B},
+ \qquad
+ c_B=\begin{cases}\nu(B),&B=\Omega\text{ or the last revealed prime of }B
+ \text{ is selected},\\0,&\text{otherwise}.\end{cases}
+\]
+Results on weighted dyadic or martingale Carleson embeddings, and on
+singular values of weighted operators on trees of bounded degree, are
+therefore relevant comparisons. We have not determined whether any of them
+yields the exact constant in Theorem~\ref{thm:main}, only two-sided
+bounds, or neither.
+
+\emph{Ultrametric spaces.} For almost every pair $(\omega,\omega')$, the
+kernel of $T$ is one plus the length of the longest common initial segment
+of the increasing sequences of primes selected by $\omega$ and $\omega'$,
+equivalently, the number of vertices whose cylinders contain both points.
+This is an ultrametric quantity. Bendikov, Grigor'yan, Pittet and
+Woess~\cite{BGPW} studied isotropic Laplacians on ultrametric spaces with
+compact balls and a reference measure, which we again call $\nu$; their
+eigenfunctions are the functions $\one_C/\nu(C)-\one_B/\nu(B)$, for a ball
+$C$ with parent ball $B$~\cite[Theorem~3.8]{BGPW}. The operator $T$ is not diagonal in the
+analogous basis. For $h=3\one_{A_2}-1$, which is this function for the
+cylinder $A_2$ and its parent $\Omega$, one has $\inner{\one}{h}=0$ and
+$(Th)(\omega)=2\sum\nu_d$ for $\omega\in A_2$, the sum taken over the
+vertices $d\ne1$ on the path of $\omega$. This is not constant on $A_2$:
+on $A_6$ it is at least $2\nu_2+2\nu_6=2/3+1/6$, while on $A_{10}$ the
+vertices after $2$ have total mass at most $\nu_{10}/(1-1/7)=7/144<1/12$,
+because every later child ratio is at most $1/7$ by \eqref{eq:arith-ratios};
+so $Th<2/3+1/6$ there. Hierarchical Schr\"odinger operators, which add a potential
+to a hierarchical Laplacian, are studied by Bendikov, Grigor'yan and
+Molchanov~\cite{BGM}, including questions about discrete spectrum. Their
+stated setting is homogeneous, and we have not carried out a comparison
+with the inhomogeneous operator $T$.
+
+\emph{Self-similar spectral problems.} The recursion behind
+Proposition~\ref{prop:sandwich}, in which a subtree operator is a rank-one
+operator plus rescaled copies of smaller subtree operators, resembles the
+recursive counting identities used for spectral asymptotics on
+self-similar sets, where renewal theory supplies the asymptotics; see
+Kigami and Lapidus~\cite{KL}. Appendix~\ref{sec:stationary} uses the key
+renewal theorem in exactly this way for stationary trees. For the
+arithmetic tree the subtrees are not rescaled copies of a single operator,
+and the asymptotics come instead from comparison with vertex counts.
+
+\emph{The arithmetic count.} Theorem~\ref{thm:arithmetic} is an
+application of classical estimates for smooth numbers~\cite{HT}, of the
+same kind as those used for sums involving the largest prime factor; for
+instance, Erd\H{o}s, Ivi\'c and Pomerance~\cite{EIP} evaluate
+$\sum_{n\le x}1/P^+(n)$ through $\Psi(x,y)$ and $\rho$. We do not regard
+the count as new in method.
+
+We have not found Theorem~\ref{thm:main} in the sources discussed above.
+The comparisons described there as not carried out could change that
+assessment.
+
+\subsection{Open questions}
+\begin{question}\label{q:drop}
+Under \eqref{eq:tree-assumptions}, suppose $D$ is regularly varying at
+zero with index $-1$. Must $\ncount(T;t)\sim D(t)$ hold without either
+vanishing child ratios or the profile hypotheses of
+Theorem~\ref{thm:profile}?
+\end{question}
+
+The exact decomposition \eqref{eq:exact-shifts} reduces this question to
+the locations of unit-integral, zero--one profiles at varying mass scales.
+Their common integral does not, by itself, justify exchanging a limit
+and the vertex sum. Proposition~\ref{prop:integrated} gives an integrated
+comparison without profile hypotheses, but does not establish a pointwise
+counting asymptotic. Proposition~\ref{prop:kary} is not a counterexample to
+Question~\ref{q:drop}, because it lacks the stipulated regular variation.
+
+Trees whose splitting rule depends on the position of a vertex's mass on
+a logarithmic scale are natural candidates for a negative answer. For such
+trees we have proved neither that the mass count is regularly varying nor
+that $\ncount(T;t)/D(t)$ fails to converge, and we make no claim about
+them here.
+
+\begin{question}
+Can the proof of Theorem~\ref{thm:arithmetic} and the sandwich in
+Proposition~\ref{prop:sandwich} be made quantitative enough to give a
+useful remainder in \eqref{eq:maincount}?
+\end{question}
+The proof as written takes $X\to\infty$ for fixed $a,b$, then sends
+$a\downarrow0$ and $b\uparrow1$. The compact-$u$ input and this order
+of limits yield a leading equivalent only. In particular, the present
+argument does not identify a second term or a rate.
+
+\begin{question}
+Can one bound $\norm{C_n^*C_n/n-K}$ explicitly in a range that makes
+Corollary~\ref{cor:growing} effective for useful $r_n$?
+\end{question}
+Hilbert--Schmidt convergence suffices for fixed indices, but supplies no
+explicit scale in the proof given here. A quantitative treatment must
+control both the rough-number densities and the matrix tail, then compare
+that error with $1/(r_n\log r_n)$.
+
+\begin{remark}[Arithmetic reach]
+The main result concerns a positive kernel whose signs can be removed by
+a diagonal unitary. Its proof uses classical smooth-number estimates and
+does not produce new cancellation in M\"obius sums. An application to a
+zero-free region would require an additional theorem that controls the
+relevant signed arithmetic quantity; the asymptotic
+$\lambda_r(K)\sim c_0/(r\log r)$ is not such a theorem by itself.
+\end{remark}
+
+\begin{remark}[Attribution]
+The compactness argument, interlacing, the rank-one trace identity, the
+renewal theorem, and the smooth-number inputs belong to established
+operator theory, probability, and analytic number theory. We make no
+priority claim for the abstract tree results in Section~\ref{sec:tree}
+or in the appendices.
+\end{remark}
+
+\subsection*{Role of AI}
+AI assisted the research development, literature search, proof exposition,
+and mathematical checking under the author's direction. Process-separated
+AI reviews are not independent expert peer review, and no independent human
+expert has examined the proofs. The release repository records the
+inspected sources, the proof reviews, and their dispositions.

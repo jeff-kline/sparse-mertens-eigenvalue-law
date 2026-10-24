@@ -1,0 +1,203 @@
+\section{Spectral shifts and a weaker transfer hypothesis}\label{sec:profiles}
+This appendix gives an alternative sufficient condition for transfer.
+It is not needed for Theorem~\ref{thm:main}. The tree assumptions are
+\eqref{eq:tree-assumptions} throughout.
+
+\subsection{Unit-integral rank-one shifts}
+\begin{lemma}\label{lem:rankone-shift}
+Let $B$ be positive and compact on a Hilbert space, and let $P=R_\phi$.
+For $t>0$, put
+\[
+ \xi(t)=\ncount(B+P;t)-\ncount(B;t).
+\]
+Then $\xi(t)\in\{0,1\}$, it vanishes for $t\ge\norm{B+P}$, and
+\begin{equation}\label{eq:shift-integral}
+ \int_0^\infty\xi(t)\,dt=\norm\phi^2.
+\end{equation}
+No trace-class assumption on $B$ is required.
+\end{lemma}
+\begin{proof}
+Positivity and rank-one interlacing give $0\le\xi\le1$. The support bound
+is immediate. For $s>0$, both positive parts below have finite rank and
+the layer-cake formula gives
+\[
+ g(s):=\Tr(B+P-sI)_+-\Tr(B-sI)_+
+      =\int_s^\infty\xi(t)\,dt.
+\]
+If $F$ is the spectral projection of $B+P$ on $(s,\infty)$, the
+variational principle for the trace of the positive part gives
+\[
+ g(s)\le\Tr(FP)\le\norm\phi^2.
+\]
+For the reverse bound, let $E=\one_{(s,\infty)}(B)$ and
+$\psi=(I-E)\phi$. If $\psi=0$, the trial projection $E$ gives
+$g(s)\ge\norm\phi^2$. Otherwise take the trial projection
+$Q=E+R_{\psi/\norm\psi}$. Since $Q\phi=\phi$,
+\[
+ g(s)\ge\norm\phi^2+
+    \inner{\psi/\norm\psi}{B(\psi/\norm\psi)}-s
+ \ge\norm\phi^2-s.
+\]
+Let $s\downarrow0$ and use monotone convergence of the nonnegative
+integral.
+\end{proof}
+
+For each vertex set
+\[
+ \widehat B_v=\widehat T_v-R_{\one},\qquad
+ \widehat\xi_v(u)=
+   \ncount(\widehat T_v;u)-\ncount(\widehat B_v;u).
+\]
+Then
+\begin{equation}\label{eq:profile-facts}
+ \widehat\xi_v\in\{0,1\},\qquad
+ \widehat\xi_v(u)=0\ (u\ge M_\theta),\qquad
+ \int_0^\infty\widehat\xi_v(u)\,du=1.
+\end{equation}
+
+\begin{proposition}[Exact counting decomposition]\label{prop:exact-shifts}
+For every $t>0$,
+\begin{equation}\label{eq:exact-shifts}
+ \ncount(T;t)=\sum_v\widehat\xi_v(t/m_v),
+ \qquad
+ D(t)=\sum_v\one_{\{t/m_v<1\}}.
+\end{equation}
+Only finitely many terms in either sum can be nonzero.
+\end{proposition}
+\begin{proof}
+The decomposition \eqref{eq:normalized-decomposition} gives
+\[
+ \ncount(T_v;t)=\widehat\xi_v(t/m_v)
+                 +\sum_{c\text{ child of }v}\ncount(T_c;t).
+\]
+Unroll this identity from the root. At depth $h$, every subtree norm is
+at most $M_\theta\theta^h$, so all residual counts vanish once this is
+at most $t$. Nonzero shifts require $m_v>t/M_\theta$, a finite set.
+The identity for $D$ is its definition.
+\end{proof}
+
+\begin{proposition}[An integrated comparison]\label{prop:integrated}
+For every $t>0$,
+\begin{equation}\label{eq:integrated-bound}
+ 0\le\int_t^\infty\{\ncount(T;s)-D(s)\}\,ds
+ \le tD(t/M_\theta).
+\end{equation}
+\end{proposition}
+\begin{proof}
+For each vertex the function
+$f_v(s)=\widehat\xi_v(s/m_v)$ takes values in $[0,1]$, is supported in
+$[0,M_\theta m_v]$, and has integral $m_v$.
+If $t<m_v$, then
+\[
+ \int_t^\infty(f_v(s)-\one_{\{s<m_v\}})\,ds
+ =t-\int_0^t f_v(s)\,ds\in[0,t].
+\]
+If $t\ge m_v$, the same expression is $\int_t^\infty f_v(s)\,ds$,
+which lies in $[0,m_v]\subseteq[0,t]$. It is zero when
+$t\ge M_\theta m_v$. Sum over the finite set of possible contributors
+using \eqref{eq:exact-shifts}.
+\end{proof}
+
+\subsection{Transfer through limiting profiles}
+The following precise domination hypothesis is stronger than pointwise
+convergence of the profiles. It states what is needed to exchange the
+varying vertex sum with a limiting profile.
+
+\begin{theorem}[Profile transfer at index $-1$]\label{thm:profile}
+Suppose $D$ is regularly varying at zero with index $-1$.
+Partition the vertices into an exceptional class $\mathcal E$ and
+finitely many classes $\mathcal V_1,\ldots,\mathcal V_q$. Define
+\[
+ D_{\mathcal U}(t)=\#\{v\in\mathcal U:m_v>t\}.
+\]
+Assume
+\[
+ D_{\mathcal E}(t)=o(D(t)),\qquad
+ \frac{D_{\mathcal V_k}(t)}{D(t)}\longrightarrow\beta_k>0,
+ \qquad \sum_{k=1}^q\beta_k=1.
+\]
+For each $k$, suppose there is a bounded Riemann-integrable function
+$h_k$ on $[0,M_\theta]$, extended by zero outside that interval.
+For every $\varepsilon>0$, suppose there is a nonnegative bounded
+Riemann-integrable function $F_{k,\varepsilon}$ on the same interval,
+also extended by zero, such that
+\[
+ \int_0^{M_\theta}F_{k,\varepsilon}(u)\,du\longrightarrow0
+ \quad(\varepsilon\downarrow0),
+\]
+and, outside a finite subset of $\mathcal V_k$ depending on $\varepsilon$,
+\begin{equation}\label{eq:profile-domination}
+ |\widehat\xi_v(u)-h_k(u)|\le F_{k,\varepsilon}(u)
+ \qquad\text{for every }u>0.
+\end{equation}
+Then $\ncount(T;t)\sim D(t)$.
+\end{theorem}
+\begin{proof}
+We first record a weighted-count consequence of regular variation.
+If $\mathcal U=\mathcal V_k$ and $g$ is bounded and Riemann integrable
+on $[0,M_\theta]$, extended by zero, then
+\begin{equation}\label{eq:weighted-count}
+ \frac1{D(t)}\sum_{v\in\mathcal U}g(t/m_v)
+ \longrightarrow\beta_k\int_0^{M_\theta}g(u)\,du.
+\end{equation}
+To see this, the normalized counting measure of the points $t/m_v$
+assigns mass
+\[
+ \frac{D_{\mathcal U}(t/b)}{D(t)}\longrightarrow\beta_k b
+\]
+to $(0,b)$, for each $b>0$. Its mass at a fixed positive endpoint tends
+to zero: bracket that mass by the difference between the counts at
+$b-\delta$ and $b+\delta$, take the limit, and let $\delta\downarrow0$.
+Mass near zero is bounded by the mass of $(0,\delta)$, whose limit is
+$\beta_k\delta$. Step-function upper and lower bounds, or Darboux sums
+on a fixed finite partition, now prove \eqref{eq:weighted-count}.
+This also accounts for possible atoms at $M_\theta$.
+
+Each class $\mathcal V_k$ is infinite. Integrating
+\eqref{eq:profile-domination} at any vertex outside its finite exception
+and using \eqref{eq:profile-facts} gives
+\[
+ \left|1-\int h_k\right|\le\int F_{k,\varepsilon}.
+\]
+Thus $\int h_k=1$. For fixed $\varepsilon$, the finitely many exceptional
+vertices in each class contribute $O(1)$ after subtracting the
+corresponding $h_k$ terms. Apply \eqref{eq:weighted-count} to both
+$h_k$ and $F_{k,\varepsilon}$ in \eqref{eq:profile-domination}. The
+upper limiting normalized error is at most
+$\beta_k\int F_{k,\varepsilon}$.
+
+Finally the entire class $\mathcal E$ contributes at most
+$D_{\mathcal E}(t/M_\theta)=o(D(t))$, by regular variation at the fixed
+scale $1/M_\theta$. Sum over $k$ and let $\varepsilon\downarrow0$.
+Equation~\eqref{eq:exact-shifts} then gives the limit $\sum_k\beta_k=1$.
+\end{proof}
+
+\begin{remark}[Recovery of vanishing child ratios]
+When $a_v\le\eta$, \eqref{eq:normalized-decomposition} gives
+\[
+ \norm{\widehat B_v}\le M_\theta\eta,\qquad
+ 1\le\lambda_1(\widehat T_v)\le1+M_\theta\eta,\qquad
+ \lambda_2(\widehat T_v)\le M_\theta\eta.
+\]
+Consequently $\widehat\xi_v(u)=1$ for $M_\theta\eta<u<1$, and it is
+zero for $u\ge1+M_\theta\eta$. Thus the common profile
+$h=\one_{[0,1)}$ works in Theorem~\ref{thm:profile}, with error envelope
+\[
+ F_\eta=\one_{[0,M_\theta\eta]}
+          +\one_{[1,1+M_\theta\eta]}
+\]
+restricted to $[0,M_\theta]$, for sufficiently small $\eta$.
+Its integral is at most $2M_\theta\eta$.
+This recovers the index-$-1$ case of Theorem~\ref{thm:transfer}.
+The argument uses only the upper bound
+$\norm{\widehat T_v}-1\le\norm{\widehat B_v}\le M_\theta\eta$;
+no lower bound on $\norm{\widehat T_v}-1$ is needed.
+\end{remark}
+
+\begin{remark}
+At index $-\alpha$, the measure in \eqref{eq:weighted-count} would instead
+be $\beta_k\alpha u^{\alpha-1}\,du$. The unit-integral identity
+\eqref{eq:profile-facts} fixes its contribution without additional moments
+precisely when $\alpha=1$. The profile theorem is therefore stated only
+at that index.
+\end{remark}

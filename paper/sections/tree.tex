@@ -1,0 +1,157 @@
+\section{Compact cylinder operators and a counting theorem}\label{sec:tree}
+This section is independent of arithmetic. It shows that a sum of rank-one
+operators attached to a tree of nested sets is compact, bounds its
+eigenvalue count above and below by counts of vertices, and gives conditions
+under which both bounds are asymptotic to the number of sets of mass above
+the threshold. Section~\ref{sec:consequences} applies it to the tree of
+Section~\ref{sec:kernel}.
+
+Let $\cyl$ be a countable rooted tree, each vertex having finite depth.
+On a probability space $(\Omega,\nu)$, associate to each vertex $v$ a
+measurable set $A_v$ of positive mass $m_v=\nu(A_v)$, with $A_o=\Omega$ at
+the root. Child sets lie inside the parent and are pairwise disjoint modulo
+null sets. They need not cover the parent. Set
+\[
+ a_v=\sup_{c\text{ child of }v}\frac{m_c}{m_v},
+ \qquad a_v=0\text{ at a leaf},\qquad
+ D(t)=\#\{v:m_v>t\}.
+\]
+Throughout this section assume
+\begin{equation}\label{eq:tree-assumptions}
+ 0\le a_v\le\theta<1,\qquad 0<\theta<1,\qquad D(t)<\infty\quad(t>0),
+ \qquad M_\theta=\frac1{1-\theta}.
+\end{equation}
+For $f$ in a Hilbert space, $R_f$ denotes the positive rank-one operator
+with quadratic form $\inner{x}{R_fx}=|\inner{x}{f}|^2$.
+
+\begin{proposition}[Construction and compactness]\label{prop:compact}
+The sum
+\[
+ T=\sum_{v\in\cyl}R_{\one_{A_v}}
+\]
+defines a positive compact operator on $L^2(\nu)$, with $\norm T\le M_\theta$.
+The synthesis map $V:\ell^2(\cyl)\to L^2(\nu)$ is compact and satisfies
+$T=VV^*$; the Gram operator $V^*V$ has entries $\nu(A_v\cap A_w)$.
+If $T_v$ is the sum over descendants of $v$, including $v$, then
+\[
+ \norm{T_v}\le M_\theta m_v.
+\]
+For the finite truncation $T^{(\varepsilon)}=\sum_{m_v>\varepsilon}
+R_{\one_{A_v}}$, with $0<\varepsilon<1$,
+\begin{equation}\label{eq:cutoff-error}
+ \norm{T-T^{(\varepsilon)}}\le M_\theta\varepsilon.
+\end{equation}
+\end{proposition}
+\begin{proof}
+At depth $\ell$, the sets are disjoint and their masses are at most
+$\theta^\ell$. Thus the sum $Q_\ell$ at that depth is an orthogonal
+sum of rank-one operators of norms $m_v$, and $\norm{Q_\ell}\le\theta^\ell$.
+Each $Q_\ell$ is compact: for every positive threshold only finitely many
+of these norms exceed it. Hence $\sum_{\ell\ge0}Q_\ell$ converges in operator
+norm to a positive compact operator, with norm at most $M_\theta$.
+The same argument within $A_v$ gives the subtree bound.
+
+The family $\{v:m_v>\varepsilon\}$ is finite and ancestor closed.
+The omitted vertices are the disjoint subtrees rooted at minimal omitted
+vertices $c$, all of mass at most $\varepsilon$. Their operators act on
+orthogonal spaces $L^2(A_c)$, proving \eqref{eq:cutoff-error}.
+
+For any $f$, the sum of $|\inner{f}{\one_{A_v}}|^2$ is $\inner{f}{Tf}$.
+This defines a bounded analysis operator $V^*$, whose adjoint is the stated
+synthesis map. Then $VV^*=T$. Compactness of $T$ implies compactness of $V$,
+for example by polar decomposition. The Gram entries follow on coordinate
+vectors. These constructions also show that finite vertex sums converge
+in norm: a finite set containing all vertices of mass above $\varepsilon$
+leaves a positive remainder dominated by the one in \eqref{eq:cutoff-error}.
+\end{proof}
+
+Use the normalized measure $\nu/m_v$ on $A_v$ to define the normalized
+subtree operator $\widehat T_v$. Extension after multiplication by
+$m_v^{-1/2}$ gives a unitary $J_v$ onto $L^2(A_v,\nu)$, and
+\[
+ T_v=m_v J_v\widehat T_vJ_v^*.
+\]
+Decomposing into child spaces, with the unused part of $A_v$ assigned a
+zero operator, gives
+\begin{equation}\label{eq:normalized-decomposition}
+ \widehat T_v=R_{\one}+
+ \bigoplus_{c\text{ child of }v}\frac{m_c}{m_v}
+ U_c\widehat T_cU_c^* .
+\end{equation}
+Here $U_c$ is the corresponding normalized embedding and
+$\norm{\one}_{L^2(A_v,\nu/m_v)}=1$. Consequently
+\begin{equation}\label{eq:subtree-norm}
+ 1\le\norm{\widehat T_v}\le1+M_\theta a_v\le M_\theta.
+\end{equation}
+
+\begin{proposition}[Tree sandwich]\label{prop:sandwich}
+Let $\mathcal L_t$ be the leaves of the finite ancestor-closed tree
+$\{v:m_v>t\}$. Then
+\begin{equation}\label{eq:sandwich}
+ |\mathcal L_t|\le\ncount(T;t)
+ \le\#\{v:m_v\norm{\widehat T_v}>t\}.
+\end{equation}
+In particular,
+\begin{equation}\label{eq:rough-sandwich}
+ D(t)-D(t/\theta)\le\ncount(T;t)\le D((1-\theta)t).
+\end{equation}
+\end{proposition}
+\begin{proof}
+Leaf vertices are incomparable, so the compression of $V^*V$ to their
+coordinates is diagonal with entries $m_v>t$. The min--max principle and
+equality of the nonzero spectra of $V^*V$ and $VV^*$ prove the lower bound.
+
+Write $n_v(u)=\ncount(\widehat T_v;u)$. Positive rank-one interlacing in
+\eqref{eq:normalized-decomposition} gives
+\[
+ n_v(u)\le
+ \one_{\{u<\norm{\widehat T_v}\}}
+ +\sum_{c\text{ child of }v}n_c(um_v/m_c).
+\]
+For $u\ge\norm{\widehat T_v}$ both sides' child counts vanish, which explains
+the indicator rather than an unrestricted $1$. For a fixed $u>0$, iteration
+terminates uniformly: at depth $h$ the threshold is at least $u\theta^{-h}$,
+and all normalized operator norms are at most $M_\theta$. Choose $h$ with
+$u\theta^{-h}\ge M_\theta$. All contributing vertices have
+$m_w>um_v/M_\theta$, so only finitely many can contribute.
+Unrolling proves the upper bound at the root.
+
+A nonleaf of $\{m_v>t\}$ has a child of mass above $t$, hence has mass
+above $t/\theta$. This proves the first rough bound. The second follows
+from \eqref{eq:subtree-norm}.
+\end{proof}
+
+\begin{definition}\label{def:regvar}
+A positive function $D$ is regularly varying at zero with index $-\alpha$
+if, for every $b>0$, $D(bt)/D(t)\to b^{-\alpha}$ as $t\downarrow0$.
+We say $a_v\to0$ outside finite sets if
+$\{v:a_v>\eta\}$ is finite for every $\eta>0$.
+\end{definition}
+The second condition is stronger than convergence of $a_v$ to zero along
+each infinite path of the tree. It requires that, for each $\eta>0$, all
+but finitely many vertices have every child of relative mass at most
+$\eta$.
+
+\begin{theorem}[Transfer from masses to eigenvalues]\label{thm:transfer}
+Under \eqref{eq:tree-assumptions}, suppose $a_v\to0$ outside finite sets
+and $D$ is regularly varying at zero with index $-\alpha$, where $\alpha>0$.
+Then
+\[
+ \ncount(T;t)\sim D(t)\qquad(t\downarrow0).
+\]
+The conclusion holds as well for the nonzero spectrum of the Gram operator
+$V^*V$.
+\end{theorem}
+\begin{proof}
+Fix $0<\eta<1$ and let $F_\eta=\{v:a_v>\eta\}$.
+Outside $F_\eta$, a nonleaf of $\{m_v>t\}$ has mass above $t/\eta$, and
+$\norm{\widehat T_v}\le1+M_\theta\eta$. Proposition~\ref{prop:sandwich} gives
+\[
+ D(t)-|F_\eta|-D(t/\eta)
+ \le\ncount(T;t)
+ \le |F_\eta|+D\bigl(t/(1+M_\theta\eta)\bigr).
+\]
+Divide by $D(t)$ and let $t\downarrow0$. Since $\alpha>0$, $D(t)\to\infty$.
+The lower limiting ratio is at least $1-\eta^\alpha$, and the upper
+limiting ratio is at most $(1+M_\theta\eta)^\alpha$. Let $\eta\downarrow0$.
+\end{proof}

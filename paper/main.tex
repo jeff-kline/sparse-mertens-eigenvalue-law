@@ -1,0 +1,78 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=1in]{geometry}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={An eigenvalue counting law for an arithmetic kernel on the squarefree integers},pdfauthor={Jeffery Kline},pdfsubject={Release candidate, version 0.1.0}}
+\usepackage[expansion=false]{microtype}
+\allowdisplaybreaks
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{question}[theorem]{Question}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\N}{\mathbb N}
+\newcommand{\one}{\mathbf 1}
+\newcommand{\sfq}{\mathcal S}
+\newcommand{\cyl}{\mathcal T}
+\newcommand{\rankone}[1]{R_{#1}}
+\newcommand{\ncount}{\mathsf n}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\HS}{\mathrm{HS}}
+\newcommand{\norm}[1]{\left\lVert #1\right\rVert}
+\newcommand{\abs}[1]{\left\lvert #1\right\rvert}
+\newcommand{\inner}[2]{\left\langle #1,#2\right\rangle}
+\newcommand{\muvec}{\boldsymbol{\mu}}
+\title{An eigenvalue counting law for an arithmetic kernel\\
+on the squarefree integers}
+\author{Jeffery Kline}
+\date{October 23, 2026\\[3pt]\small Version 0.1.0 (release candidate)}
+\begin{document}
+\maketitle
+\begin{abstract}
+Order the squarefree integers as a rooted tree in which the parent of
+$d>1$ is $d/P^+(d)$, where $P^+(d)$ is the largest prime factor of $d$.
+On this tree consider the symmetric kernel $K$ whose entry at an ancestor
+$j$ and a descendant $k$ is $\mu(k/j)\delta_k$, where
+$\delta_k=(6/\pi^2)k^{-1}\prod_{p\le P^+(k)}p/(p+1)$. It arises as the
+limit of normalized Gram matrices of inverses of sparse $(0,1)$ matrices
+whose bordered versions have determinant equal to the Mertens function.
+An earlier release by the author identified each fixed eigenvalue of $K$
+as a limit of finite singular values; here we determine how the
+eigenvalues decay. We prove that $K$ is positive and compact with
+\[
+ \lambda_r(K)\sim\frac{6/\pi^2}{r\log r}\qquad(r\to\infty),
+\]
+equivalently that the number of eigenvalues exceeding $s$ is asymptotic
+to $(6/\pi^2)/(s\log(1/s))$. The same law holds for a rank-one deflation
+of $K$ whose eigenvalues determine, index by index, the limits of the
+rescaled lower singular values of the bordered matrices, apart from the
+smallest one.
+The proof removes the M\"obius signs by a diagonal unitary, realizes the
+kernel as a Gram matrix of nested cylinder sets for a random set of
+primes, and shows that the eigenvalue count is asymptotic to the number
+of cylinders of mass above the threshold. That number is evaluated with
+Mertens' theorem and the Dickman function; the constant comes from the
+identity $\int_0^\infty\rho=e^\gamma$. No convergence rate is obtained,
+and no estimate for the Mertens function follows.
+\end{abstract}
+\tableofcontents
+\input{sections/introduction}
+\input{sections/kernel}
+\input{sections/tree}
+\input{sections/arithmetic}
+\input{sections/consequences}
+\input{sections/finite}
+\input{sections/related}
+\appendix
+\input{sections/profiles}
+\input{sections/stationary}
+\input{sections/references}
+\end{document}

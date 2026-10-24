@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "Please cite Version 0.1.0 of this research repository."
+title: "An eigenvalue counting law for an arithmetic kernel on the squarefree integers"
+type: software
+version: 0.1.0
+authors:
+  - family-names: Kline
+    given-names: Jeffery
+license: GPL-3.0-only
+abstract: >-
+  A paper and release repository proving that the explicit positive compact
+  kernel K on the squarefree integers, the limit of normalized Gram matrices
+  of the inverses of sparse Mertens matrices, has eigenvalues
+  lambda_r(K) ~ (6/pi^2)/(r log r), with the corresponding counting and
+  cumulative laws, and that the same laws hold for its rank-one deflation.
+  The proof uses a cylinder Gram representation, a tree interlacing
+  sandwich, and classical smooth-number estimates. No convergence rate and
+  no estimate for the Mertens function are claimed.
+keywords:
+  - eigenvalue asymptotics
+  - compact operator
+  - Mertens function
+  - Moebius function
+  - squarefree integers
+  - Dickman function
+references:
+  - type: software
+    title: "The singular spectrum of a sparse Mertens matrix"
+    version: 0.1.0
+    doi: 10.5281/zenodo.23004980
+    authors:
+      - family-names: Kline
+        given-names: Jeffery

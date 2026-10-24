@@ -1,0 +1,121 @@
+\section{Relation to the sparse finite matrices}\label{sec:finite}
+This section recalls the finite matrices of~\cite{Kline} and the order of
+limits in their relation to $K$. Proposition~\ref{prop:finite} is
+\cite[Theorem~4.3]{Kline}; we include its proof so that the paper can be
+read on its own. Corollary~\ref{cor:growing} records what an explicit
+operator-norm estimate would add.
+
+For $1\le i,j\le n$, let
+\[
+ (A_n)_{ij}=\one_{\{i=j\}}+
+ \one_{\{i>1,\ i\in\sfq,\ j=i/P^+(i)\}},
+ \qquad C_n=A_n^{-1}.
+\]
+The off-diagonal part is strictly lower triangular. Its powers follow
+successive parent steps, so its finite geometric inverse gives
+\begin{equation}\label{eq:Centries}
+ (C_n)_{ij}=
+ \begin{cases}
+ \mu(i/j),&i,j\in\sfq,\ j\preceq i,\\
+ 1,&i=j\notin\sfq,\\
+ 0,&\text{otherwise}.
+ \end{cases}
+\end{equation}
+In particular $C_ne_1=(\mu(1),\ldots,\mu(n))^{\mathsf T}$.
+
+\begin{proposition}[Finite Gram convergence]\label{prop:finite}
+Extend $H_n=C_n^*C_n/n$ by zero to $\ell^2(\N)$. Then
+\[
+ \norm{H_n-K}_{\HS}\longrightarrow0.
+\]
+Consequently, for every fixed $r\ge1$,
+\[
+ \frac{s_r(C_n)}{\sqrt n}\longrightarrow\sqrt{\lambda_r(K)},
+\]
+where $s_r(C_n)$ denotes the $r$th largest singular value.
+\end{proposition}
+\begin{proof}
+For squarefree $j\preceq k\le n$, common descendant rows in
+\eqref{eq:Centries} give
+\[
+ (C_n^*C_n)_{jk}=\mu(k/j)\,G_k(n),
+ \quad
+ G_k(n)=\#\{d\le n/k:\mu^2(d)=1,\ P^-(d)>P^+(k)\}.
+\]
+Here $P^-(1)=+\infty$. Incomparable squarefree coordinates give zero,
+and nonsquarefree coordinates give only the diagonal entry $1$.
+
+For fixed $y$, the density of squarefree integers coprime to
+$P_y=\prod_{p\le y}p$ is
+\begin{equation}\label{eq:roughdensity}
+ \lim_{x\to\infty}\frac1x
+   \sum_{\substack{d\le x\\(d,P_y)=1}}\mu^2(d)
+ =\prod_{p\le y}(1-1/p)\prod_{p>y}(1-1/p^2)
+ =c_0\prod_{p\le y}\frac p{p+1}.
+\end{equation}
+Indeed, substitute $\mu^2(d)=\sum_{\beta^2\mid d}\mu(\beta)$.
+For each fixed $\beta$ coprime to $P_y$, the remaining coprimality
+condition has density $\varphi(P_y)/P_y$; terms $\beta>B$, after division
+by $x$, are bounded by $\sum_{\beta>B}\beta^{-2}$.
+Taking $x\to\infty$ and then $B\to\infty$ gives the Euler product.
+This proof includes $y=1$, with $P_y=1$.
+
+It follows that $G_k(n)/n\to\delta_k$ for each fixed squarefree $k$.
+Furthermore $G_k(n)/n\le1/k$ and $\delta_k\le1/k$. For maximal coordinate
+$k$, there are at most $1+2\omega(k)$ ordered comparable pairs.
+The convergent series
+\[
+ \sum_{k\ge1}\frac{1+2\omega(k)}{k^2}<\infty
+\]
+therefore dominates the squared squarefree matrix entries and their
+differences, up to an absolute constant. Its convergence follows, for
+example, from $\omega(k)\le\log k/\log2$ for $k\ge2$.
+Dominated convergence gives the Hilbert--Schmidt limit on the squarefree
+coordinates. The squared Hilbert--Schmidt norm on nonsquarefree
+coordinates is at most $n/n^2=1/n$.
+Finally, operator-norm convergence and the min--max principle imply
+convergence of each fixed ordered eigenvalue of $H_n$. Taking square
+roots proves the singular-value assertion.
+\end{proof}
+
+In particular, the rigorously justified iterated limit is
+\[
+ \lim_{r\to\infty}\sqrt{\frac{r\log r}{c_0}}\,
+       \left(\lim_{n\to\infty}\frac{s_r(C_n)}{\sqrt n}\right)=1.
+\]
+A simultaneous limit requires a quantitative error estimate.
+
+\begin{corollary}[A sufficient condition for growing indices]\label{cor:growing}
+Suppose $\varepsilon_n\ge\norm{H_n-K}$ and $r_n\le n$ is an integer
+sequence with $r_n\to\infty$ and
+$\varepsilon_n r_n\log r_n\to0$. Then
+\[
+ s_{r_n}(C_n)\sim
+       \sqrt{\frac{c_0 n}{r_n\log r_n}}.
+\]
+\end{corollary}
+\begin{proof}
+The min--max principle gives
+$|\lambda_{r_n}(H_n)-\lambda_{r_n}(K)|\le\varepsilon_n$.
+Divide by Theorem~\ref{thm:main}'s asymptotic for $\lambda_{r_n}(K)$,
+then take square roots.
+\end{proof}
+
+\begin{remark}[Bordering and Mertens sums]
+Let $\mathbf 1_n$ be the all-ones vector and set
+\[
+ B_n=A_n+e_1(\mathbf 1_n-e_1)^{\mathsf T}.
+\]
+Thus the first row is replaced by ones. The determinant lemma, together
+with \eqref{eq:Centries}, gives the exact identity
+\[
+ \det B_n
+ =1+(\mathbf 1_n-e_1)^{\mathsf T}C_ne_1
+ =\sum_{j\le n}\mu(j)=M(n).
+\]
+The present counting theorem is unconditional and concerns the positive
+limiting Gram spectrum. This determinant identity does not convert it into
+a new cancellation estimate for $M(n)$. Such an application needs further
+control of the signed vector and the bordering operation, or uniform
+finite-size estimates strong enough for the intended arithmetic conclusion.
+\end{remark}

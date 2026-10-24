@@ -1,0 +1,167 @@
+\section{Introduction}\label{sec:intro}
+All logarithms are natural. Write $\sfq$ for the positive squarefree integers,
+$\mu$ for the M\"obius function, and $P^+(d)$ for the largest prime factor of
+$d$, with $P^+(1)=1$. Put
+\[
+ c_0=\frac{6}{\pi^2},\qquad
+ \nu_d=\frac1d\prod_{p\le P^+(d)}\frac{p}{p+1},\qquad
+ \delta_d=c_0\nu_d\quad(d\in\sfq).
+\]
+Thus $\nu_1=1$. The primes in each product are unrestricted by divisibility.
+
+The squarefree integers form a rooted tree: the root is $1$, and the parent
+of $d>1$ is $d/P^+(d)$. Write $j\preceq k$ when $j$ is an ancestor of $k$,
+including equality. Equivalently, $j\mid k$ and every prime divisor of $k/j$
+exceeds $P^+(j)$. Listing the prime factors of $k$ in increasing order, the
+ancestors of $k$ are exactly the products of its initial segments.
+
+Define a real symmetric matrix on $\N\times\N$ by
+\begin{equation}\label{eq:K}
+ K_{jk}=
+ \begin{cases}
+ \mu(k/j)\delta_k,&j,k\in\sfq,\ j\preceq k,\\
+ \mu(j/k)\delta_j,&j,k\in\sfq,\ k\preceq j,\\
+ 0,&\text{otherwise}.
+ \end{cases}
+\end{equation}
+The two applicable cases agree on the diagonal. Nonsquarefree coordinates
+are zero. We shall show that this matrix defines a positive compact operator
+on $\ell^2(\N)$.
+
+For a positive compact operator $A$, let
+\[
+ \ncount(A;t)=\#\{r:\lambda_r(A)>t\},\qquad t>0,
+\]
+where positive eigenvalues are ordered decreasingly, with multiplicity.
+All counting functions in the operator arguments use this strict convention.
+The subject of this paper is the rate at which the eigenvalues of $K$ tend
+to zero.
+
+\begin{theorem}\label{thm:main}
+The operator $K$ in \eqref{eq:K} is positive and compact. As $s\downarrow0$,
+\begin{equation}\label{eq:maincount}
+ \ncount(K;s)\sim\frac{c_0}{s\log(1/s)}.
+\end{equation}
+Equivalently, as $r\to\infty$,
+\begin{equation}\label{eq:maineigen}
+ \lambda_r(K)\sim\frac{c_0}{r\log r}.
+\end{equation}
+Consequently,
+\[
+ \sum_{r\le R}\lambda_r(K)\sim c_0\log\log R.
+\]
+The same three asymptotics hold for the positive compact operator
+\begin{equation}\label{eq:deflation}
+ L=K-\frac{(Ke_1)(Ke_1)^*}{c_0}.
+\end{equation}
+\end{theorem}
+
+Two immediate consequences are that $K$ and $L$ lie in the Schatten class
+$\mathcal S_p$ exactly when $p>1$ (Corollary~\ref{cor:schatten}), and that
+$K$ is not trace class even though $K$ minus its diagonal is
+(Proposition~\ref{prop:traceclass}).
+
+\subsection{Where the kernel comes from}
+The kernel $K$ appeared in the author's earlier study~\cite{Kline} of a
+sparse matrix, introduced in~\cite{Kline19}, whose determinant is the
+Mertens function $M(n)=\sum_{m\le n}\mu(m)$. Let $A_n$ be
+the $n\times n$ matrix with ones on the diagonal and an additional one in
+position $(i,i/P^+(i))$ for each squarefree $i$ with $1<i\le n$. Its inverse
+$C_n=A_n^{-1}$ has entries $\mu(i/j)$ when $j\preceq i$
+(Section~\ref{sec:finite}). Replacing the first row of $A_n$ by ones gives
+a matrix $B_n$ with $\det B_n=M(n)$. The following facts are proved
+in~\cite{Kline}.
+\begin{itemize}
+\item \cite[Theorem~4.3]{Kline}: the matrices $C_n^*C_n/n$, extended by zero,
+ converge to $K$ in Hilbert--Schmidt norm. Hence, for every fixed $r$,
+ $s_r(C_n)/\sqrt n\to\sqrt{\lambda_r(K)}$.
+\item \cite[Theorem~4.6]{Kline}: for every fixed $r\ge1$,
+ $\sqrt n\,\sigma_{n-r}(B_n)\to\lambda_r(L)^{-1/2}$, with $L$ as in
+ \eqref{eq:deflation}.
+\end{itemize}
+Both statements fix the index $r$ and let $n\to\infty$. They identify each
+limit but do not describe how the limits behave as $r$ grows. The earlier
+analysis also gives little quantitative information about the limiting
+operator itself: Hilbert--Schmidt membership gives
+$\sum_r\lambda_r(K)^2<\infty$, but not the order of $\lambda_r(K)$.
+Theorem~\ref{thm:main} answers this question for the limiting operators.
+It does not, by itself, give information about $s_{r}(C_n)$ when $r$ and
+$n$ grow together; Section~\ref{sec:finite} records what an operator-norm
+error estimate would add.
+
+A first guess comes from the diagonal. The diagonal entries of $K$ are
+$\delta_d$, and Mertens' product theorem gives
+$\delta_d\approx e^{-\gamma}/(d\log P^+(d))$ when $P^+(d)$ is large. The
+off-diagonal part is not small in the sense needed, however. It is trace
+class (Proposition~\ref{prop:traceclass}), which controls partial sums of
+eigenvalues up to a bounded error. The eigenvalues themselves, however,
+are of order $1/(r\log r)$, and a trace-class operator may have singular
+values that are not $o(1/(r\log r))$. Trace-class membership alone
+therefore does not transfer an asymptotic for individual eigenvalues from
+the diagonal to $K$. The proof uses the structure of $K$ instead.
+
+\subsection{Outline of the proof}
+The argument has four steps.
+
+\emph{Removing the signs.} On comparable squarefree indices
+$\mu(k/j)=\mu(j)\mu(k)$, so conjugation by the diagonal unitary with
+entries $\mu(d)$ replaces $K$ by the unsigned kernel with entries
+$\delta_{\max(j,k)}$ on comparable pairs. The spectrum is unchanged.
+
+\emph{A cylinder representation.} Choose a random set of primes, including
+each prime $p$ independently with probability $1/(p+1)$. For $d\in\sfq$ let
+$A_d$ be the event that the selected primes up to $P^+(d)$ are exactly the
+prime divisors of $d$. Then $A_d$ has probability $\nu_d$; the events are
+nested along the tree and disjoint for incomparable indices. The unsigned
+kernel is therefore $c_0$ times the Gram matrix of the indicators
+$\one_{A_d}$ (Section~\ref{sec:kernel}).
+
+\emph{From masses to eigenvalues.} Section~\ref{sec:tree} treats any tree
+of nested sets whose children are disjoint and carry at most a fixed
+fraction $\theta<1$ of their parent's mass. The operator $T$, the sum
+over vertices $v$ of the rank-one maps
+$f\mapsto\inner{f}{\one_{A_v}}\one_{A_v}$, is compact, and splitting each subtree into
+its root and its children expresses $T$ as a rank-one operator plus an
+orthogonal sum of rescaled copies of the subtree operators. Rank-one
+interlacing, applied recursively, traps the eigenvalue count of $T$
+between the number of leaves and an inflated number of vertices of the
+finite tree $\{v:\nu(A_v)>t\}$. When the child-to-parent mass ratios tend
+to zero outside finite sets and the mass count is regularly varying, both
+bounds are asymptotic to the mass count (Theorem~\ref{thm:transfer}).
+
+\emph{Counting the masses.} It remains to count $d$ with $\nu_d>t$
+(Section~\ref{sec:arithmetic}). Grouping $d$ by its largest prime factor
+reduces this to counts of squarefree smooth numbers, which we evaluate
+with the Dickman function and Mertens' theorems. The answer is
+$D(t)\sim1/(t\log(1/t))$. Its constant is the product of the squarefree
+density $c_0$, the limit $\zeta(2)e^{-\gamma}$ of $m(p)\log p$, where
+$m(p)=\prod_{q\le p}q/(q+1)$, and the classical value
+$\int_0^\infty\rho(v)\,dv=e^\gamma$; since $c_0\zeta(2)=1$, the product
+is one. The factor $c_0$ in Theorem~\ref{thm:main} comes only from the
+relation $\delta_d=c_0\nu_d$.
+
+\subsection{Scope}
+The result is unconditional. Its ingredients are classical: rank-one
+interlacing, the min--max principle, smooth-number estimates
+from~\cite{HT}, and Mertens' theorems. What this paper contributes is the
+cylinder representation of $K$, the reduction of its eigenvalue count to a
+count of cylinder masses, and the evaluation of that count, which together
+give the exact asymptotic in Theorem~\ref{thm:main}. Section~\ref{sec:related}
+discusses related results on arithmetic matrices, operators on trees, and
+self-similar spectral problems, and lists comparisons that remain open.
+
+We do not obtain a rate of convergence or a second-order term in
+\eqref{eq:maincount}. The theorem concerns the limiting operators; it
+does not give a growing-index statement for the finite matrices without
+an additional estimate (Corollary~\ref{cor:growing}). The kernel is
+positive after a diagonal change of signs, and the proof uses no
+cancellation in sums of $\mu$; in particular, no new estimate for $M(n)$
+follows.
+
+Appendix~\ref{sec:profiles} gives a second sufficient condition for the
+transfer from masses to eigenvalues, based on an exact rank-one shift
+identity, and Appendix~\ref{sec:stationary} applies it to stationary
+trees and computes the spectrum of homogeneous trees. Neither appendix is
+needed for Theorem~\ref{thm:main}. Whether the transfer requires an
+assumption beyond regular variation of the mass count is left open
+(Question~\ref{q:drop}).

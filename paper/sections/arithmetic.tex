@@ -1,0 +1,202 @@
+\section{The arithmetic mass count}\label{sec:arithmetic}
+This section evaluates the count \eqref{eq:Darith}. We write each
+$d>1$ as its largest prime factor times a squarefree number with smaller
+prime factors, count the latter with smooth-number estimates, and sum over
+the largest prime. Because the classical estimates are uniform only in
+limited ranges, the sum is split into three ranges of the largest prime.
+
+For a prime $p$, put
+\[
+ m(p)=\prod_{q\le p}\frac q{q+1}.
+\]
+Let $\Psi(x,y)$ count the positive integers $n\le x$ with $P^+(n)\le y$.
+Use $\Psi(x,p^-)$ for the strict condition $P^+(n)<p$, and let
+$\Psi_{\mathrm{sf}}(x;p^-)$ impose squarefreeness as well.
+All three functions are zero for $x<1$.
+
+\begin{theorem}\label{thm:arithmetic}
+For the masses $\nu_d$ of Section~\ref{sec:intro},
+\[
+ D(t)=\#\{d\in\sfq:\nu_d>t\}
+ \sim\frac1{t\log(1/t)}\qquad(t\downarrow0).
+\]
+\end{theorem}
+
+\subsection{Classical inputs and the uniformity actually used}
+We use Chebyshev's upper bound $\pi(y)\ll y/\log y$ and the two Mertens
+asymptotics
+\[
+ \prod_{p\le y}(1-1/p)\sim\frac{e^{-\gamma}}{\log y},
+ \qquad \sum_{p\le y}\frac1p=\log\log y+B+o(1).
+\]
+In particular,
+\begin{equation}\label{eq:mproduct}
+ m(p)\sim\frac{\zeta(2)e^{-\gamma}}{\log p},
+ \qquad \frac{c}{\log p}\le m(p)\le\frac C{\log p}\quad(p\ge2)
+\end{equation}
+for absolute positive constants $c,C$.
+
+The Dickman function $\rho$ is $1$ on $[0,1]$, zero on $(-\infty,0)$, and
+satisfies $u\rho'(u)=-\rho(u-1)$ for $u>1$. We use:
+\begin{align}
+ \Psi(x,y)&\ll x e^{-u/2}
+ &&(x\ge y\ge2,\ u=\log x/\log y),\label{eq:rankin}\\
+ \sup_{u\in I}\left|\frac{\Psi(x,x^{1/u})}{x}-\rho(u)\right|&\longrightarrow0
+ &&(x\to\infty),\label{eq:dickmancompact}\\
+ \int_0^\infty\rho(u)\,du&=e^\gamma.\label{eq:dickmanintegral}
+\end{align}
+In \eqref{eq:dickmancompact}, $I$ is any fixed compact interval in
+$(0,\infty)$.
+
+These facts may be sourced to Hildebrand--Tenenbaum~\cite{HT}.
+Printed page~414 states the fixed-$u$ Dickman limit. Equation~(1.4) there
+has an extra factor $\log y$ in \eqref{eq:rankin}; the following sentence
+explicitly states that this factor can be removed, citing Tenenbaum's
+Theorem~III.5.1. Thus \eqref{eq:rankin} uses that strengthened bound,
+not equation~(1.4) alone. For \eqref{eq:dickmanintegral}, use Lemma~2.6
+on printed page~426 and the definition of $E$ in (2.3), printed page~422:
+the Laplace transform is $\exp(\gamma+E(-s))$, and $E(0)=0$.
+
+For completeness, the compact uniformity in \eqref{eq:dickmancompact}
+follows from the fixed-$u$ limit. Both
+$u\mapsto\Psi(x,x^{1/u})/x$ and $\rho(u)$ are nonincreasing; $\rho$ is
+continuous. A finite mesh on $I$ with small oscillation of $\rho$ brackets
+all intermediate values between endpoint values, where convergence is
+simultaneous. For $u<1$ the smooth count is simply $\lfloor x\rfloor$.
+No approximation on a growing $u$-range is used below.
+
+\subsection{An exact weak-count identity}
+Let
+\[
+ F(X)=\#\{d\in\sfq:\nu_d\ge1/X\}\qquad(X>1).
+\]
+Every $d>1$ factors uniquely as $d=pm$ with $p=P^+(d)$ and
+$m$ squarefree with $P^+(m)<p$. Thus
+\begin{equation}\label{eq:Fidentity}
+ F(X)=1+\sum_p\Psi_{\mathrm{sf}}(x_p;p^-),
+ \qquad x_p=\frac{Xm(p)}p.
+\end{equation}
+Primes $p\ge X$ give zero. We prove $F(X)\sim X/\log X$, then transfer to
+the strict count. Write $L=\log X$ and $\alpha_p=(\log p)/L$.
+Fix $0<a\le1/4<b<1$ and split the sum at $X^a$ and $X^b$.
+
+\subsection{Small largest primes}
+The term $p=2$ equals $1$ for all sufficiently large $X$, since $m=1$
+is the only squarefree positive integer with all prime factors below $2$.
+For $3\le p\le X^a$, \eqref{eq:mproduct} implies, uniformly in this range,
+\[
+ x_p\ge \frac{cX^{1-a}}{L}\ge p,\qquad \log x_p\ge L/2
+\]
+once $X$ is large. Hence \eqref{eq:rankin} gives
+\[
+ \Psi_{\mathrm{sf}}(x_p;p^-)
+ \le\Psi(x_p,p)
+ \ll\frac{X}{p\log p}\exp\left(-\frac{L}{4\log p}\right).
+\]
+For integer $k\ge1$, Chebyshev's bound gives
+\[
+ \sum_{e^k<p\le e^{k+1}}\frac1p
+ \le e^{-k}\pi(e^{k+1})\ll\frac1k.
+\]
+On such a bin, $1/\log p<1/k$ and
+$e^{-L/(4\log p)}\le e^{-L/(4(k+1))}\le e^{-L/(8k)}$, since $4(k+1)\le8k$
+for $k\ge1$. The small-prime contribution, apart from $p=2$, is therefore
+at most
+\[
+ CX\sum_{1\le k\le aL}\frac1{k^2}e^{-L/(8k)}.
+\]
+The function $f(u)=u^{-2}e^{-L/(8u)}$ is unimodal, with maximum
+$256e^{-2}/L^2$. Comparing the sum with its integral and twice its maximum,
+and using
+\[
+ \int_0^{aL}u^{-2}e^{-L/(8u)}\,du
+ =\frac8L e^{-1/(8a)},
+\]
+we obtain
+\begin{equation}\label{eq:smallrange}
+ \sum_{p\le X^a}\Psi_{\mathrm{sf}}(x_p;p^-)
+ \ll \frac XL e^{-1/(8a)}+\frac X{L^2}+1.
+\end{equation}
+The implied constant here can be taken independent of $a$ in $(0,1/4]$.
+
+\subsection{The middle range}
+We first establish, uniformly for $X^a<p<X^b$,
+\begin{equation}\label{eq:squarefree-smooth}
+ \Psi_{\mathrm{sf}}(x_p;p^-)
+ =x_p\{c_0\rho(u_p)+o(1)\},
+ \qquad u_p=\frac{\log x_p}{\log p}.
+\end{equation}
+The squarefree identity $\mu^2(n)=\sum_{\beta^2\mid n}\mu(\beta)$ gives
+\[
+ \Psi_{\mathrm{sf}}(x;p^-)
+ =\sum_{\substack{\beta\le\sqrt x\\P^+(\beta)<p}}
+   \mu(\beta)\Psi(x/\beta^2,p^-).
+\]
+Terms with $\beta>B$ have absolute sum at most
+$x\sum_{\beta>B}\beta^{-2}\ll x/B$. For fixed $B$, all $\beta\le B$
+satisfy $P^+(\beta)<p$ once $X$ is large. Uniformly in the middle range,
+$x_p/\beta^2\to\infty$ and
+\[
+ \frac{\log(x_p/\beta^2)}{\log p}
+\]
+stays in a fixed compact subinterval of $(0,\infty)$.
+Replacing the strict cutoff $p^-$ by $p$ changes a count at argument $z$
+by at most $z/p$. Apply \eqref{eq:dickmancompact}, and then continuity
+of $\rho$, to obtain
+\[
+ \frac{\Psi(x_p/\beta^2,p^-)}{x_p}
+ =\beta^{-2}\rho(u_p)+o(1)
+\]
+uniformly for this finite set of $\beta$. First let $X\to\infty$ and then
+$B\to\infty$. Since $\sum_{\beta\ge1}\mu(\beta)/\beta^2=1/\zeta(2)=c_0$,
+this proves \eqref{eq:squarefree-smooth}.
+
+Equation~\eqref{eq:mproduct} now gives, uniformly on the middle range,
+\[
+ u_p=\frac{1-\alpha_p}{\alpha_p}+o(1),\qquad
+ c_0x_p=\frac{e^{-\gamma}X}{p\log p}\{1+o(1)\}.
+\]
+The total mass $\sum_{X^a<p<X^b}x_p$ is $O_{a,b}(X/L)$, so the uniform
+errors remain $o_{a,b}(X/L)$ after summation. Consequently
+\begin{equation}\label{eq:middlebefore}
+ \frac LX\sum_{X^a<p<X^b}\Psi_{\mathrm{sf}}(x_p;p^-)
+ =e^{-\gamma}\sum_{X^a<p<X^b}
+ \frac1p\,\frac{\rho((1-\alpha_p)/\alpha_p)}{\alpha_p}+o(1).
+\end{equation}
+Mertens' reciprocal-prime asymptotic implies weak convergence of these
+prime measures on $[a,b]$ to $d\alpha/\alpha$: on any fixed subinterval
+$[u,v]\subset[a,b]$ their masses tend to $\log(v/u)$.
+Approximating the continuous integrand in \eqref{eq:middlebefore} by
+step functions yields
+\begin{equation}\label{eq:middlelimit}
+ \lim_{X\to\infty}\frac LX
+ \sum_{X^a<p<X^b}\Psi_{\mathrm{sf}}(x_p;p^-)
+ =e^{-\gamma}\int_a^b
+     \rho\!\left(\frac{1-\alpha}{\alpha}\right)\frac{d\alpha}{\alpha^2}
+ =e^{-\gamma}\int_{(1-b)/b}^{(1-a)/a}\rho(v)\,dv.
+\end{equation}
+
+\subsection{Large largest primes and completion}
+The trivial estimate $\Psi_{\mathrm{sf}}(x_p;p^-)\le x_p$ and
+\eqref{eq:mproduct} show
+\begin{equation}\label{eq:largerange}
+ \sum_{X^b\le p<X}\Psi_{\mathrm{sf}}(x_p;p^-)
+ \le \frac{CX}{bL}\sum_{X^b\le p<X}\frac1p
+ =\frac{CX}{bL}\{\log(1/b)+o(1)\}.
+\end{equation}
+All summands in \eqref{eq:Fidentity} are nonnegative. Thus the limiting
+middle contribution is a lower bound for $\liminf LF(X)/X$, while
+\eqref{eq:smallrange} and \eqref{eq:largerange} bound the excess in the
+upper limit. Let $a\downarrow0$ and $b\uparrow1$, after taking the limits
+in $X$. Equation~\eqref{eq:dickmanintegral} gives
+\[
+ \frac{LF(X)}X\longrightarrow
+ e^{-\gamma}\int_0^\infty\rho(v)\,dv=1.
+\]
+Finally, for every fixed $\varepsilon>0$,
+\[
+ F\bigl(X/(1+\varepsilon)\bigr)\le D(1/X)\le F(X).
+\]
+Taking $X\to\infty$ and then $\varepsilon\downarrow0$ proves
+Theorem~\ref{thm:arithmetic}. In particular, $D$ is regularly varying
+at zero with index $-1$.

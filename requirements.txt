@@ -1,0 +1,2 @@
+# No third-party Python dependencies. The checker uses only the standard library.
+# Tested isolated interpreter: Python 3.9.6 (any Python 3.9+ standard library suffices).
