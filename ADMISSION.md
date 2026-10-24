@@ -44,8 +44,9 @@ Mertens function is claimed.
 | Inaccessible sources visible | PASS | Named in the README, paper §7 and `audit/PRIOR-ART.md`. MathSciNet and zbMATH NOT PERFORMED |
 | Fast-follow scan within 7 days of tagging | PASS for 2026-10-24 | `audit/PRIOR-ART.md` (search log, 2026-10-24) and `audit/LEDGER.md`. Must be repeated if tagging happens after 2026-10-31 |
 
-**P1 gate:** PARTIAL (narrowed 2026-10-24; no source read contains or implies the principal result). The residuals are named. A tag would be acceptable
-under the standard only if the author accepts these named residuals.
+**P1 gate:** PARTIAL (narrowed 2026-10-24; no source read contains or implies the principal result). The residuals are named. A tag is acceptable
+under the standard only if the author accepts them; **the author accepted
+these named residuals on 2026-10-24.**
 
 ## A1 — claim and artifact consistency
 

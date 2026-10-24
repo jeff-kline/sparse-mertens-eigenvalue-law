@@ -165,3 +165,9 @@ and one section reference.
   `e22b7e98fb0c6c3b7cf093ef430891615bd4230b1da59aeae1bd157fcaa3c0b2`.
   README re-rendered with `gh api markdown -f mode=gfm`: 63 inline and 3
   display math elements, no `$` outside math. Pages 15–16 inspected.
+
+## 2026-10-24 — P1 residuals accepted (author decision)
+
+- The author accepted the named P1 residuals (`audit/PRIOR-ART.md`, "Open
+  comparisons"). P1 remains PARTIAL; the acceptance is recorded in
+  `ADMISSION.md`. No public action is authorized by this decision.
