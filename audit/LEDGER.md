@@ -104,3 +104,19 @@ and one section reference.
   and `c816db9` are `2778446+jeff-kline@users.noreply.github.com`.
 - Not done, and not authorized: public visibility, tag, GitHub Release,
   Zenodo, site entry.
+
+## 2026-10-23 — README math rendered as GitHub math (author request)
+
+- The author asked for README mathematics to be typeset as math rather than
+  code spans. Inline math now uses `$…$`, and display math uses fenced
+  `math` blocks.
+- Verified with `gh api markdown -f mode=gfm`:
+  - 63 inline and 3 display `math-renderer` elements, equal to the 63 inline
+    spans and 3 fenced blocks in the source;
+  - no `$` outside rendered math;
+  - no unconverted `<pre lang="math">`.
+- Two GitHub pitfalls were found and avoided. A fenced `math` block indented
+  inside a list item is left as `<pre lang="math">` and not typeset. A
+  `$$…$$` inside a list item is typeset inline, not as display. Inside lists
+  the README therefore uses inline math only.
+- No claim changed.

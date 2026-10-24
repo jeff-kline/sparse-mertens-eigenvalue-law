@@ -16,65 +16,73 @@ The paper is [paper/main.pdf](paper/main.pdf); its source is
 ## Introduction
 
 Arrange the squarefree integers (no prime square divides them) as a tree:
-the root is 1, and the parent of `d > 1` is `d/P⁺(d)`, where `P⁺(d)` is the
-largest prime factor of `d`. On this tree define the symmetric kernel `K`
-whose entry at an ancestor `j` and a descendant `k` is `μ(k/j)·δ_k`, where μ
-is the Möbius function and
+the root is 1, and the parent of $d > 1$ is $d/P^+(d)$, where $P^+(d)$ is
+the largest prime factor of $d$. On this tree define the symmetric kernel
+$K$ whose entry at an ancestor $j$ and a descendant $k$ is
+$\mu(k/j)\,\delta_k$, where $\mu$ is the Möbius function and
 
-```text
-δ_k = (6/π²) · (1/k) · ∏_{p ≤ P⁺(k)} p/(p+1).
+```math
+\delta_k=\frac{6}{\pi^2}\cdot\frac{1}{k}\prod_{p\le P^+(k)}\frac{p}{p+1}.
 ```
 
 Entries at pairs that are not ancestor and descendant are zero. This kernel
-is the limit of normalized Gram matrices `C_nᵀC_n / n` of the inverses
-`C_n = A_n⁻¹` of sparse (0,1) matrices; replacing the first row of `A_n` by
-ones gives a matrix `B_n` with determinant `M(n) = μ(1) + … + μ(n)`. The
-predecessor release identified each fixed eigenvalue of `K` as a limit of
-finite singular values. This paper determines how the eigenvalues decay:
-`K` is positive and compact, and
+is the limit of the normalized Gram matrices $C_n^{\mathsf T}C_n/n$ of the
+inverses $C_n=A_n^{-1}$ of sparse $(0,1)$ matrices; replacing the first row
+of $A_n$ by ones gives a matrix $B_n$ with determinant
+$M(n)=\mu(1)+\cdots+\mu(n)$. The predecessor release identified each fixed
+eigenvalue of $K$ as a limit of finite singular values. This paper
+determines how the eigenvalues decay: $K$ is positive and compact, and
 
-```text
-λ_r(K) ~ (6/π²) / (r log r)          as r → ∞,
+```math
+\lambda_r(K)\sim\frac{6/\pi^2}{r\log r}\qquad(r\to\infty);
 ```
 
-equivalently, the number of eigenvalues above `s` is asymptotic to
-`(6/π²) / (s log(1/s))`. The same law holds for a rank-one deflation `L` of
-`K`, namely `L = K − (Ke₁)(Ke₁)ᵀ / (6/π²)`, whose eigenvalues give, index by index, the limits of the rescaled lower
-singular values of `B_n` other than the smallest.
+equivalently, the number of eigenvalues above $s$ is asymptotic to
+$(6/\pi^2)/(s\log(1/s))$ as $s\to0$. The same law holds for the rank-one
+deflation
+
+```math
+L=K-\frac{(Ke_1)(Ke_1)^{\mathsf T}}{6/\pi^2},
+```
+
+whose eigenvalues give, index by index, the limits of the rescaled lower
+singular values of $B_n$ other than the smallest.
 
 The proof removes the Möbius signs by a diagonal change of signs, realizes
 the kernel as a Gram matrix of nested cylinder sets for a random set of
 primes, and shows that the eigenvalue count is asymptotic to the number of
 cylinders of mass above the threshold. That number is evaluated with
-Mertens' theorem and the Dickman function; the constant comes from the
-classical identity `∫₀^∞ ρ(v) dv = e^γ`. No convergence rate is obtained,
-and no estimate for the Mertens function follows.
+Mertens' theorem and the Dickman function $\rho$; the constant comes from
+the classical identity $\int_0^\infty\rho(v)\,dv=e^\gamma$. No convergence
+rate is obtained, and no estimate for the Mertens function follows.
 
 ## What is new
 
-The predecessor release proved that `C_nᵀC_n / n → K` in Hilbert–Schmidt
-norm and that, for each fixed `r`, the rescaled singular values of `C_n` and
-the lower singular values of `B_n` converge to expressions in `λ_r(K)` and
-`λ_r(L)`. It did not describe how `λ_r(K)` behaves as `r` grows. New here:
+The predecessor release proved that $C_n^{\mathsf T}C_n/n\to K$ in
+Hilbert–Schmidt norm and that, for each fixed $r$, the rescaled singular
+values of $C_n$ and the lower singular values of $B_n$ converge to
+expressions in $\lambda_r(K)$ and $\lambda_r(L)$. It did not describe how
+$\lambda_r(K)$ behaves as $r$ grows. New here:
 
-1. **Principal result: the eigenvalue law.** For the explicit kernel `K`,
-   unconditionally, `λ_r(K) ~ (6/π²)/(r log r)`, the eigenvalue count above
-   `s` is asymptotic to `(6/π²)/(s log(1/s))`, and
-   `λ_1(K) + … + λ_R(K) ~ (6/π²) log log R`. The same three statements hold
-   for the deflated operator `L`, which is positive.
-2. **Consequences.** `K` and `L` lie in the Schatten class `S_p` exactly
-   when `p > 1`; `K` is not trace class, although `K` minus its diagonal is.
+1. **Principal result: the eigenvalue law.** For the explicit kernel $K$,
+   unconditionally, $\lambda_r(K)\sim(6/\pi^2)/(r\log r)$ as $r\to\infty$;
+   the number of eigenvalues above $s$ is asymptotic to
+   $(6/\pi^2)/(s\log(1/s))$ as $s\to0$; and
+   $\lambda_1(K)+\cdots+\lambda_R(K)\sim(6/\pi^2)\log\log R$. The same three
+   statements hold for the deflated operator $L$, which is positive.
+2. **Consequences.** $K$ and $L$ lie in the Schatten class $S_p$ exactly
+   when $p>1$; $K$ is not trace class, although $K$ minus its diagonal is.
 3. **The cylinder representation.** After conjugation by the diagonal
-   matrix of Möbius signs, `K / (6/π²)` is the Gram matrix of the events "the
-   selected primes up to `P⁺(d)` are exactly the prime factors of `d`",
-   where each prime `p` is selected independently with probability
-   `1/(p+1)`.
+   matrix of Möbius signs, $K/(6/\pi^2)$ is the Gram matrix of the events
+   "the selected primes up to $P^+(d)$ are exactly the prime factors of
+   $d$", where each prime $p$ is selected independently with probability
+   $1/(p+1)$.
 4. **Supporting general results (appendices and Section 3).** For any tree
    of nested sets with disjoint children carrying at most a fixed fraction
-   `θ < 1` of the parent's mass, the associated operator is compact, and its
-   eigenvalue count lies between the number of leaves and an inflated
+   $\theta<1$ of the parent's mass, the associated operator is compact, and
+   its eigenvalue count lies between the number of leaves and an inflated
    vertex count of the sets of mass above the threshold. Under vanishing
-   child ratios, or a profile condition at index −1, and regular variation
+   child ratios, or a profile condition at index $-1$, and regular variation
    of the mass count, the eigenvalue count is asymptotic to the mass count.
    Stationary non-arithmetic trees satisfy the profile condition. These use
    standard tools (interlacing, a rank-one trace identity, the key renewal
@@ -95,28 +103,29 @@ so this is not a worldwide novelty claim.
 
 ## Earlier work
 
-- **Kline (2019)** introduced the sparse matrix with determinant `M(n)`:
+- **Kline (2019)** introduced the sparse matrix with determinant $M(n)$:
   J. Kline, *A sparser matrix representation of the Mertens function*,
   Linear Algebra Appl. 581 (2019), 354–366.
-- **Kline (2026)**, the predecessor release, constructed `K` and `L` and
+- **Kline (2026)**, the predecessor release, constructed $K$ and $L$ and
   proved the fixed-index limits.
 - **Hilberdink (2017)** developed fixed-index compact Gram limits for
   multiplicative Toeplitz matrices; the predecessor's limit follows that
   pattern.
-- **Hilberdink and Pushnitski (2023, and a 2024 preprint)** proved power-law eigenvalue
-  asymptotics for LCM-type arithmetic matrices through tensor products over
-  primes and a Wiener–Ikehara Tauberian theorem. `K` has entries determined
-  by the ancestor relation; no tensor factorization of it was found, and its
-  law carries a logarithmic factor.
+- **Hilberdink and Pushnitski (2023, and a 2024 preprint)** proved
+  power-law eigenvalue asymptotics for LCM-type arithmetic matrices through
+  tensor products over primes and a Wiener–Ikehara Tauberian theorem. The
+  entries of $K$ are determined by the ancestor relation; no tensor
+  factorization of it was found, and its law carries a logarithmic factor.
 - **Evans, Harris and Lang (2001)** proved approximation-number asymptotics
-  of order `1/n` for Hardy operators on metric trees of finite degree. The
+  of order $1/n$ for Hardy operators on metric trees of finite degree. The
   synthesis operator here has approximation numbers of order
-  `(n log n)^(−1/2)`, so it is outside that theorem.
+  $(n\log n)^{-1/2}$, so it is outside that theorem.
 - **Bendikov, Grigor'yan, Pittet and Woess (2014)** diagonalized isotropic
   Laplacians on ultrametric spaces; the operator here is not diagonal in the
   corresponding basis.
 - **Hildebrand and Tenenbaum (1993)** is the source for the smooth-number
-  inputs (the Dickman limit, the uniform Rankin bound, and `∫ρ = e^γ`).
+  inputs (the Dickman limit, the uniform Rankin bound, and
+  $\int_0^\infty\rho=e^\gamma$).
 - **Kigami and Lapidus (1993)** used recursive counting identities and
   renewal theory for self-similar fractals; the appendix on stationary trees
   uses the key renewal theorem in that way.
@@ -130,13 +139,13 @@ the full text of Kigami–Lapidus.
 
 | Claim | Status |
 |---|---|
-| Theorem 1.1 (eigenvalue law for `K` and `L`) | proved on paper, from classical inputs |
+| Theorem 1.1 (eigenvalue law for $K$ and $L$) | proved on paper, from classical inputs |
 | Theorem 3.4 and Proposition 3.2 (tree transfer and sandwich) | proved on paper |
 | Theorem 4.1 (mass count) | proved on paper, conditional on the cited classical estimates of Hildebrand–Tenenbaum (1993) and Mertens' theorems |
 | Proposition 6.1 (finite Gram limit) | proved on paper; restates the predecessor's Theorem 4.3 |
 | Corollary 6.2 (growing indices) | proved on paper, conditional on an operator-norm error bound that is not supplied |
 | Appendix A (profile transfer) | proved on paper |
-| Lower singular values of `B_n` through `L` (Introduction) | cited from the predecessor's Theorem 4.6, not reproved here |
+| Lower singular values of $B_n$ through $L$ (Introduction) | cited from the predecessor's Theorem 4.6, not reproved here |
 | Appendix B (stationary trees) | proved on paper, conditional on the key renewal theorem (Gallager, Theorem 4.7.3) |
 
 - No theorem rests on numerical computation.
